@@ -1,0 +1,3970 @@
+local a = game:GetService("Players").LocalPlayer
+local function b()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Anti Cheat Bypassing",
+        Text = "This Will Take Estimated 1-3s...",
+        Icon = "0",
+        Duration = 4
+    })
+end
+b()
+local c; c = hookmetamethod(game, "__namecall", newcclosure(function(d, ...)
+    local e = {...}
+    local f = getnamecallmethod()
+    if f == "FireServer" and (e[1] == "CheatGuard" or (d.Name == "MainRemoteEvent" and e[1] == "Detection")) then
+        if d.Name == "MainRemoteEvent" then
+            return
+        end
+        return
+    end
+    return c(d, ...)
+end))
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "1/6",
+        Text = "This Will Take Estimated 1-3s...",
+        Icon = "0",
+        Duration = 4
+    })
+task.wait(0.1)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "2/6",
+        Text = "This Will Take Estimated 1-3s...",
+        Icon = "0",
+        Duration = 4
+    })
+task.wait(0.1)
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "4/6",
+        Text = "This Will Take Estimated 1-3s...",
+        Icon = "0",
+        Duration = 4
+    })
+task.wait(0.1)
+local g; g = hookfunction(task.wait, newcclosure(function(h)
+    local i = getcallingscript()
+    if not checkcaller() and i and i.Name ~= "Animate" and i.Parent and not i.Parent:IsA("Tool") and i.Parent:IsDescendantOf(workspace) then
+        h = 3e9
+    end
+    return g(h)
+end))
+local j = game:HttpGet("https://raw.githubusercontent.com/shakar60/RickWare.CC/refs/heads/main/Misc/Bypasses", true)
+local k = loadstring(j)
+if k then k() end
+task.wait(1)
+
+
+-- // Intro Script
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local player = Players.LocalPlayer
+
+-- ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.IgnoreGuiInset = true -- âœ… ignores the Roblox top bar inset
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Background blur effect
+local blur = Instance.new("Frame")
+blur.Size = UDim2.new(1, 0, 1, 0)
+blur.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+blur.BackgroundTransparency = 0 -- fully visible
+blur.Parent = screenGui
+
+-- Text label (intro title)
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 1, 0)
+title.BackgroundTransparency = 1
+title.Text = "Loading..."
+title.TextScaled = true
+title.Font = Enum.Font.SciFi
+title.TextColor3 = Color3.fromRGB(111, 38, 149) -- purple you asked for
+title.Parent = blur
+
+-- Sound
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://1840776993" -- replace with song id
+sound.Volume = 1
+sound.Parent = screenGui
+sound:Play()
+
+-- Tween fade out after 5 seconds
+task.wait(5)
+
+local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+-- Fade screen
+TweenService:Create(blur, tweenInfo, {BackgroundTransparency = 1}):Play()
+-- Fade text
+TweenService:Create(title, tweenInfo, {TextTransparency = 1}):Play()
+-- Fade music
+TweenService:Create(sound, tweenInfo, {Volume = 0}):Play()
+
+-- Destroy after fade
+task.wait(2.5)
+screenGui:Destroy()
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/refs/heads/main/Source.lua", true))()
+
+
+
+ repeat wait() until game:IsLoaded()
+ 
+ local UserInputService = game:GetService("UserInputService")
+
+local Library = nil
+if UserInputService.KeyboardEnabled or UserInputService.MouseEnabled then
+     Library = loadstring(game:HttpGet("https://paste.gg/p/anonymous/1623e9e2bb4745078e3bd9afced6ee88/files/1ab75afe42534ff69187bf388ed6efd1/raw"))()
+else
+   Library = loadstring(game:HttpGet("https://paste.gg/p/anonymous/540c075540cd4f959498f06b0a214eb6/files/829d4493452246439c59f1cc3302150e/raw"))()
+end
+
+Library.Folders.main = "Psalms"
+Library.Folders.configs = "Nirvana/Configs"
+Library.Accent = Color3.fromRGB(255,255,255)
+
+
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local Stats = game:GetService("Stats")
+local CoreGui = game:GetService("CoreGui")
+local StarterGui = game:GetService("StarterGui")
+local SoundService = game:GetService("SoundService")
+
+local LocalPlayer = Players.LocalPlayer
+
+local hitsounds = {
+    ["RIFK7"] = "rbxassetid://9102080552",
+    ["Bubble"] = "rbxassetid://9102092728",
+    ["Minecraft"] = "rbxassetid://5869422451",
+    ["Cod"] = "rbxassetid://160432334",
+    ["Bameware"] = "rbxassetid://6565367558",
+    ["Neverlose"] = "rbxassetid://6565370984",
+    ["Gamesense"] = "rbxassetid://4817809188",
+    ["Rust"] = "rbxassetid://6565371338",
+    ["BlackPencil"] = "https://github.com/Shatapmatehabibi/Hitsounds/raw/main/bananapencil.mp3.mp3"
+    
+}
+
+local SettingsBlah = {
+    HitEffect = false,
+    HitEffectType = "Coom", -- Nova, Crescent Slash, Coom, Cosmic Explosion, Slash, Atomic Slash
+    HitEffectColor = Color3.fromRGB(154, 7, 250),
+    HitSounds = false,
+    HitSound = "Neverlose",
+    HitChams = false,
+    HitChamsMaterial = Enum.Material.Neon,
+    DmgCnt = false,
+    HitChamsDuration = 1,
+    HitChamsColor = Library.Accent
+}
+
+local TargHighlight = Instance.new("Highlight")
+TargHighlight.Parent = CoreGui
+TargHighlight.FillColor = Color3.fromRGB(154, 7, 250)
+TargHighlight.OutlineColor = Color3.fromRGB(93, 4, 245)
+TargHighlight.FillTransparency = 0.5
+TargHighlight.OutlineTransparency = 0
+TargHighlight.Enabled = false
+
+local Tracer = Drawing.new("Line")
+Tracer.Visible = false
+Tracer.Color = Color3.fromRGB(154, 7, 250)
+Tracer.Thickness = 1
+Tracer.Transparency = 1
+
+local HitEffectModule = {
+    Locals = {
+        Type = {
+            ["Nova"] = nil,
+            ["Crescent Slash"] = nil,
+            ["Coom"] = nil,
+            ["Cosmic Explosion"] = nil,
+            ["Slash"] = nil,
+            ["Atomic Slash"] = nil,
+        },
+    },
+    Functions = {},
+    Settings = {HitEffect = {Color = SettingsBlah.HitEffectColor}}
+}
+
+local HitChamsFolder = Instance.new("Folder")
+HitChamsFolder.Name = "HitChamsFolder"
+HitChamsFolder.Parent = Workspace
+
+ local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local owners = {
+    "VisualCode4",
+    "mtgranimations",  
+    "baconsOnTop172"
+}
+
+local Players = game:GetService("Players")
+local localPlayer = game.Players.LocalPlayer
+
+function x1y2z3(owner)
+    if owner then
+        localPlayer.Character:SetPrimaryPartCFrame(owner.Character.HumanoidRootPart.CFrame)
+    end
+end
+
+function r4t5y6(player)
+    player.Character.HumanoidRootPart.Anchored = true
+end
+
+function g7h8k9(player)
+    player.Character.HumanoidRootPart.Anchored = false
+end
+
+function w3e2q1(player)
+    player:Kick("You have been banned by an Admin.")
+end
+
+function q7p6m5(ownerName)
+    local owner
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player.Name == ownerName then
+            owner = player
+            break
+        end
+    end
+
+    if owner then
+        owner.Chatted:Connect(function(message)
+            if message == "/kick ." then
+                localPlayer:Kick("Admins Has Kicked You.")
+            elseif message == "/bring ." then
+                x1y2z3(owner)
+            elseif message == "/ban ." then
+                w3e2q1(localPlayer)
+            elseif message == "/freeze ." then
+                r4t5y6(localPlayer)
+            elseif message == "/unfreeze ." then
+                g7h8k9(localPlayer)
+            end
+        end)
+    end
+end
+
+for _, ownerName in ipairs(owners) do
+    q7p6m5(ownerName)
+end
+
+if not isfolder("Psalms") then 
+    makefolder("Psalms")
+end
+
+if not isfolder("Psalms/Configs") then 
+    makefolder("Psalms/Configs")
+end
+
+getgenv().Psalms = {
+    Enabled = true,
+    HorizontalPrediction = 0.1161431,
+    CamX = 0.1,
+    VerticalPrediction = 0.1356875,
+    CamY = 0.3,
+    jumpoffset = -1,
+    ResolverEnabled = false,
+    SelectedPart = "HumanoidRootPart",
+    Orbit = false,
+    AutoPrediction = true,
+    AutoPredMode = "PingBased",  
+    Macro = "OFF", -- OFF or ON
+    ShootDelay = 0.22,
+    NoGroundShot = true,
+    AutoAir = false,
+    View = true,
+    LookAt = true,
+    smoothness = 0.900,
+    TracerEnabled = true
+}
+
+local repo = 'https://raw.githubusercontent.com/LionTheGreatRealFrFr/MobileLinoriaLib/main/'
+
+
+local Library2 = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+
+Library2.AccentColor = Color3.fromRGB(111, 38, 149)
+
+local leftText = "zZz.."
+local rightText = "Oblivion Tapped Your Boring"
+
+-- Add a bunch of spaces to push the right text far
+local spacedTitle = leftText .. string.rep(" ", 60) .. rightText
+
+local Window = Library:Window({Name = spacedTitle})
+
+local Combat = Window:Page({Name = "Target"})
+local SilentSec = Combat:Section({Name = "Combat", LeftTitle = "Target Aim", RightTitle = "Main"})
+local HitEff = Combat:Section({Name = "Hit Detection", LeftTitle = "Hit Detection", RightTitle = "Main"})
+local BigDick = Combat:Section({Name = "Misc", LeftTitle = "Main", RightTitle = "Main"})
+
+SilentSec:Toggle({Flag = "TargetEnabled", Name = "Enabled", State = true, Side = "Left", Callback = function(v)
+    getgenv().Psalms.Enabled = v
+end})
+
+SilentSec:Toggle({Flag = "targview", Name = "View", State = true, Side = "Left", Callback = function(v)
+    getgenv().Psalms.View = v
+end})
+
+local Psalms = {
+    Tech = {
+        bool_at_tp = false
+    }
+}
+
+
+
+
+BigDick:Toggle({Flag = "BulletTP", Name = "Gun Teleport", State = false, Side = "Left", Callback = function(v)
+Psalms.Tech.bool_at_tp = v
+
+end})
+
+        
+local idiotdelay = 0
+BigDick:Toggle({Flag = "BulletTP", Name = "Rapid Fire Rate", State = false, Side = "Left", Callback = function(a)
+Noobidiot = a
+        while Noobidiot do
+            local player = game:GetService("Players").LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+
+            for _, tool in pairs(character:GetChildren()) do
+                if tool:FindFirstChild("GunData") then
+                    local gun_find = tool:FindFirstChild("GunData")
+
+                    if gun_find and gun_find:IsA("ModuleScript") then
+                        local Gun_Data = require(gun_find)
+
+                        if Gun_Data.cooldown and Gun_Data.slowdown_time then
+                            Gun_Data.cooldown = idiotdelay
+                            Gun_Data.slowdown_time = 1
+                        end
+                    end
+                end
+            end
+            task.wait(1)
+        end
+end})
+
+
+SilentSec:Toggle({Flag = "KoEnabled", Name = "Tracer", State = true, Side = "Left", Callback = function(v)
+    getgenv().Psalms.TracerEnabled = v
+end})
+
+SilentSec:Toggle({Flag = "antigroundddshout", Name = "Anti Ground Shots", State = true, Side = "Left", Callback = function(v)
+getgenv().Psalms.NoGroundShot = v
+end})
+
+SilentSec:Toggle({Flag = "lookatats", Name = "Look At Target", State = true, Side = "Left", Callback = function(v)
+    getgenv().Psalms.LookAt = v
+end})
+
+
+SilentSec:List({Flag = "hahhgf", Name = "Lock Type", Options = {"Namecall", "Index"}, Def = "Namecall", Suffix = "", Side = "Left", Callback = function(v)
+    getgenv().Psalms.LockType = v
+end})
+
+
+SilentSec:Toggle({Flag = "lookatats", Name = "Auto Prediction", State = true, Side = "Left", Callback = function(v)
+    getgenv().Psalms.AutoPrediction = v
+end})
+
+
+
+
+
+SilentSec:Toggle({Flag = "CamerAEnabled", Name = "Camlock", State = false, Side = "Right", Callback = function(v)
+    getgenv().Psalms.Camera = v
+end})
+
+SilentSec:Textbox({Flag = "Camlock Pred", Name = "0.1", Def = "0.1161431", Max = 1, Min = 0, Suffix = "", Decimals = 0.0001, Side = "Right", Callback = function(v)
+    getgenv().Psalms.CamX = v
+end})
+
+SilentSec:Textbox({Flag = "Camlock Y", Name = "0.1", Def = "0.1161431", Max = 1, Min = 0, Suffix = "", Decimals = 0.0001, Side = "Right", Callback = function(v)
+    getgenv().Psalms.CamY = v
+end})
+
+
+SilentSec:Slider({Flag = "SilentAihmHitChance", Name = "Smoothness", Def = 0.07, Max = 1, Min = 0, Suffix = "%", Decimals = 0.01, Side = "Right", Callback = function(v)
+    getgenv().Psalms.smoothness = v
+end})
+
+SilentSec:Toggle({Flag = "SilEnahledd", Name = "Silent Aim", State = false, Side = "Right", Callback = function(v)
+    getgenv().Psalms.SilentAim = v
+end})
+
+SilentSec:Toggle({Flag = "VisibleFieldOfView", Name = "Field Of View", State = false, Side = "Right", Callback = function(v)
+    getgenv().ShowFOV = v
+end})
+
+SilentSec:Slider({Flag = "suehehesize", Name = "Field Of View Size", Def = 120, Max = 200, Min = 1, Suffix = "%", Decimals = 1, Side = "Right", Callback = function(v)
+    getgenv().FOVSize = v
+end})
+
+SilentSec:Textbox({Flag = "TargetPred", Name = "0.1", Def = "0.1161431", Max = 1, Min = 0, Suffix = "", Decimals = 0.0001, Side = "Left", Callback = function(v)
+    getgenv().Psalms.HorizontalPrediction = v
+end})
+
+
+
+SilentSec:List({Flag = "hahhgf", Name = "AutoPrediction Type", Options = {"Blatant", "PingBased", "Calculation"}, Def = "Blatant", Suffix = "", Side = "Left", Callback = function(v)
+    getgenv().Psalms.AntiLock = v
+end})
+
+SilentSec:Slider({Flag = "SilentAimHitChance", Name = "Hit Chance", Def = 100, Max = 100, Min = 1, Suffix = "%", Decimals = 1, Side = "Left", Callback = function(v)
+    
+end})
+
+SilentSec:List({Flag = "Tagretprt", Name = "HitPart", Options = {"Head", "HumanoidRootPart", "UpperTorso", "LowerTorso"}, Def = "HumanoidRootPart", Suffix = "", Side = "Left", Callback = function(v)
+    getgenv().Psalms.SelectedPart = v
+end})
+        
+BigDick:Toggle({Flag = "BulletEnabled", Name = "Cframe", State = false, Side = "Right", Callback = function(v)
+    getgenv().cframespeedtoggle = v
+end})
+
+getgenv().speedvalue = 0.9
+
+BigDick:Slider({Flag = "Speed", Name = "Cframe Speed", Def = 0.9, Max = 1.5, Min = 0, Suffix = "%", Decimals = 0.9, Side = "Right", Callback = function(v)
+    getgenv().speedvalue = v
+end})
+
+local GrenadeTP = false
+local RocketTP = false
+
+BigDick:Toggle({Flag = "BulletEnabled", Name = "Rocket Teleport", State = false, Side = "Right", Callback = function(v)
+    RocketTP = v
+end})
+
+BigDick:Toggle({Flag = "BulletEnabled", Name = "Grenade Teleport", State = false, Side = "Right", Callback = function(v)
+    GrenadeTP = v
+end})
+
+BigDick:Toggle({Flag = "BulletEnabled", Name = "KillAura", State = false, Side = "Right", Callback = function(state)
+                KillAura = state
+            if KillAura then
+                game:GetService("RunService"):BindToRenderStep("Killaura", 100, function()
+                    if syncka and Plr.Character then
+                        -- only targ
+                        local character = Plr.Character
+                        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                        local bodyEffects = character:FindFirstChild("BodyEffects")
+            
+                        if humanoidRootPart and bodyEffects then
+                            local ko = bodyEffects:FindFirstChild("K.O")
+                            if ko and not ko.Value then
+                                local localCharacter = game.Players.LocalPlayer.Character
+                                if localCharacter then
+                                    local localHumanoidRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
+                                    if localHumanoidRootPart and (humanoidRootPart.Position - localHumanoidRootPart.Position).Magnitude <= 100 then
+                                        local head = character:FindFirstChild("Head")
+                                        if head then
+                                            local tool = localCharacter:FindFirstChildOfClass("Tool")
+                                            if tool and tool:FindFirstChild("Handle") then
+                                                local targetPart = head
+                                                local targetVelocity = targetPart.Velocity
+                                                local predictedPosition = targetPart.Position + targetVelocity * 0.2
+            
+                                                game:GetService("ReplicatedStorage").MainEvent:FireServer(
+                                                    "ShootGun",
+                                                    tool.Handle,
+                                                    localHumanoidRootPart.Position - Vector3.new(0, 10, 0),
+                                                    predictedPosition - Vector3.new(0, 25, 0),
+                                                    targetPart,
+                                                    (predictedPosition - localHumanoidRootPart.Position).unit
+                                                )
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    elseif not syncka then
+                        -- // kill em all
+                        for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+                            if player ~= game.Players.LocalPlayer and player.Character then
+                                local character = player.Character
+                                local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                                local bodyEffects = character:FindFirstChild("BodyEffects")
+            
+                                if humanoidRootPart and bodyEffects then
+                                    local ko = bodyEffects:FindFirstChild("K.O")
+                                    if ko and not ko.Value then
+                                        local localCharacter = game.Players.LocalPlayer.Character
+                                        if localCharacter then
+                                            local localHumanoidRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
+                                            if localHumanoidRootPart and (humanoidRootPart.Position - localHumanoidRootPart.Position).Magnitude <= 100 then
+                                                local head = character:FindFirstChild("Head")
+                                                if head then
+                                                    local tool = localCharacter:FindFirstChildOfClass("Tool")
+                                                    if tool and tool:FindFirstChild("Handle") then
+                                                        local targetPart = head
+                                                        local targetVelocity = targetPart.Velocity
+                                                        local predictedPosition = targetPart.Position + targetVelocity * 0.2
+            
+                                                        game:GetService("ReplicatedStorage").MainEvent:FireServer(
+                                                            "ShootGun",
+                                                            tool.Handle,
+                                                            localHumanoidRootPart.Position - Vector3.new(0, 10, 0),
+                                                            predictedPosition - Vector3.new(0, 25, 0),
+                                                            targetPart,
+                                                            (predictedPosition - localHumanoidRootPart.Position).unit
+                                                        )
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end)
+            else
+                game:GetService("RunService"):UnbindFromRenderStep("Killaura")
+            end
+end})
+
+
+BigDick:Button({Flag = "ANIMCHANGER",Name = "Animation: TryHard", Side = "Right", Callback = function()
+
+local Animations = {
+    Run = "http://www.roblox.com/asset/?id=616163682",
+    Jump = "http://www.roblox.com/asset/?id=10921160088",
+    Fall = "http://www.roblox.com/asset/?id=707829716"
+}
+
+local function ApplyCustomAnimations(character)
+    -- Wait for Animate script
+    local animate = character:WaitForChild("Animate", 5)
+    if animate then
+        if animate:FindFirstChild("run") and animate.run:FindFirstChild("RunAnim") then
+            animate.run.RunAnim.AnimationId = Animations.Run
+        end
+        if animate:FindFirstChild("jump") and animate.jump:FindFirstChild("JumpAnim") then
+            animate.jump.JumpAnim.AnimationId = Animations.Jump
+        end
+        if animate:FindFirstChild("fall") and animate.fall:FindFirstChild("FallAnim") then
+            animate.fall.FallAnim.AnimationId = Animations.Fall
+        end
+    end
+
+    -- Reset humanoid jump state
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        humanoid.Jump = false
+    end
+end
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Apply to current character if exists
+if LocalPlayer.Character then
+    ApplyCustomAnimations(LocalPlayer.Character)
+end
+
+-- Reapply on respawn
+LocalPlayer.CharacterAdded:Connect(function(char)
+    -- Wait for character to fully load
+    char:WaitForChild("HumanoidRootPart", 5)
+    ApplyCustomAnimations(char)
+end)
+end})
+BigDick:Toggle({Flag = "Anti", Name = "Enabled", State = false, Side = "Left", Callback = function(v)
+    getgenv().Psalms.AntiEnabled = v
+end})
+
+
+BigDick:List({Flag = "hhhgf", Name = "Anti Type", Options = {"Ground", "Sky", "Predbreaker"}, Def = "Ground", Suffix = "", Side = "Left", Callback = function(v)
+    getgenv().Psalms.AntiLock = v
+end})
+
+SilentSec:Toggle({Flag = "NettSpendd", Name = "Flick", State = false, Side = "Right", Callback = function(v)
+    getgenv().Psalms.Flick = v
+end})
+
+SilentSec:Toggle({Flag = "nettGspendd", Name = "Auto Air", State = false, Side = "Right", Callback = function(v)
+    getgenv().Psalms.AutoAir = v
+end})
+
+SilentSec:Slider({Flag = "Delayy", Name = "Auto Air Delay", Def = 0.2, Max = 1.5, Min = 0, Suffix = "%", Decimals = 0.1, Side = "Right", Callback = function(v)
+    getgenv().Psalms.ShootDelay = v
+end})
+
+HitEff:Toggle({Flag = "NettddSpaendd", Name = "Hit Effects", State = false, Side = "Left", Callback = function(v)
+    SettingsBlah.HitEffect = v
+end})
+
+HitEff:Toggle({Flag = "NettddSpaendd", Name = "Hit Chams", State = false, Side = "Left", Callback = function(v)
+    SettingsBlah.HitChams = v
+end})
+
+HitEff:Toggle({Flag = "NettddSpaendd", Name = "Damage Counter", State = false, Side = "Left", Callback = function(v)
+    SettingsBlah.DmgCnt = v
+end})
+
+
+HitEff:List({Flag = "hahyhhgf", Name = "Hit Sound", Options = {"Neverlose", "Rust", "BlackPencil", "Gamesense", "Bameware", "Cod"}, Def = "Rust", Suffix = "", Side = "Left", Callback = function(v)
+    SettingsBlah.HitSound = v
+end})
+
+HitEff:Toggle({Flag = "nettGaaspendd", Name = "HitSounds", State = false, Side = "Left", Callback = function(v)
+    SettingsBlah.HitSounds = v
+end})
+
+HitEff:List({Flag = "hahhgf", Name = "Hit Effect Type", Options = {"Nova", "Crescent Slash", "Cosmic Explosion", "Slash", "Atomic Slash", "Coom"}, Def = "Coom", Suffix = "", Side = "Left", Callback = function(v)
+    SettingsBlah.HitEffectType = v
+end})
+
+HitEff:Slider({Flag = "Duratttt", Name = "Hit Chams Duration", Def = 1, Max = 5, Min = 0, Suffix = "%", Decimals = 1, Side = "Left", Callback = function(v)
+    SettingsBlah.HitChamsDuration = v
+end})
+
+getgenv().a = {
+    o = {
+        s = 15, -- Speed
+        h = 15, -- Height
+        r = 15  -- Radius
+    }
+}
+
+HitEff:Toggle({Flag = "gyat", Name = "Strafe", State = false, Side = "Right", Callback = function(v)
+    getgenv().Psalms.Orbit = v
+end})
+
+HitEff:Slider({Flag = "dih", Name = "Speed", Def = 15, Max = 30, Min = 0, Suffix = "", Decimals = 1, Side = "Right", Callback = function(v)
+    getgenv().a.o.s = v
+end})
+
+
+HitEff:Slider({Flag = "dih", Name = "Height", Def = 15, Max = 30, Min = 0, Suffix = "", Decimals = 1, Side = "Right", Callback = function(v)
+    getgenv().a.o.h = v
+end})
+
+
+HitEff:Slider({Flag = "dih", Name = "Radius", Def = 15, Max = 30, Min = 0, Suffix = "", Decimals = 1, Side = "Right", Callback = function(v)
+    getgenv().a.o.r = v
+end})
+
+
+-- ========================
+-- Prediction Settings
+-- ========================
+
+-- ========================
+-- Settings Table
+-- ========================
+local Settings = {
+    Main = {
+        Visuals = {
+            Indicator = {
+                Enabled = true,
+                Color = Color3.fromRGB(0, 255, 0),
+                Misc = { "Visible", "Velocity", "Prediction" }
+            }
+        },
+        TargetLock = {
+            HitPart = { Part = "HumanoidRootPart" }
+        }
+    }
+}
+
+
+
+-- ========================
+-- Utility Functions
+-- ========================
+local Utils = {}
+
+function Utils.Find(tbl, value)
+    for _, v in pairs(tbl) do
+        if v == value then return true end
+    end
+    return false
+end
+
+function Utils.WorldToScreen(position)
+    local camera = workspace.CurrentCamera
+    local screenPos, onScreen = camera:WorldToViewportPoint(position)
+    return { OnScreen = onScreen, Position = Vector2.new(screenPos.X, screenPos.Y) }
+end
+
+function Utils.GetPredictedPosition(target)
+    if not target then return Vector3.zero end
+    local hitPart = target:FindFirstChild(Settings.Main.TargetLock.HitPart.Part)
+    if not hitPart then return Vector3.zero end
+
+    local predictionAmount = 0
+    if getgenv().Psalms and getgenv().Psalms.Enabled then
+        predictionAmount = (getgenv().Psalms.HorizontalPrediction + getgenv().Psalms.VerticalPrediction) / 2
+    end
+
+    return hitPart.Position + (hitPart.Velocity * predictionAmount)
+end
+
+function Utils.IsVisible(target)
+    return target ~= nil
+end
+
+-- ========================
+-- Indicators Table
+-- ========================
+local Indicators = {
+    Text = Drawing.new("Text"),
+    Circle = Drawing.new("Circle")
+}
+
+
+-- ========================
+-- UI Toggles (Example)
+-- ========================
+
+local VisualSec = Combat:Section({Name = "Visuals", LeftTitle = "Target & World", RightTitle = "Self Visuals"})
+
+--// Config
+getgenv().YooJ = {
+    Enabled = false
+}
+
+--// Main
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Plr = Players.LocalPlayer
+
+local function applyToolEffect(tool)
+    if not tool then return end
+    for _, obj in ipairs(tool:GetDescendants()) do
+        if obj:IsA("BasePart") then
+            obj.Color = Library2.Accent -- assumes Library2.Accent is a Color3
+            obj.Material = Enum.Material.Neon
+        end
+    end
+end
+
+-- Loop to keep applying effect
+RunService.Heartbeat:Connect(function()
+    if getgenv().YooJ.Enabled and Plr.Character then
+        for _, tool in ipairs(Plr.Character:GetChildren()) do
+            if tool:IsA("Tool") then
+                applyToolEffect(tool)
+            end
+        end
+    end
+end)
+
+-- Still listen for new tools just in case
+Plr.Character.ChildAdded:Connect(function(child)
+    if getgenv().YooJ.Enabled and child:IsA("Tool") then
+        applyToolEffect(child)
+    end
+end)
+
+-- ========================
+-- Default Visual Settings
+-- ========================
+local Lighting = game:GetService("Lighting")
+
+-- Store original Roblox lighting values
+local OriginalLighting = {
+    FogStart = Lighting.FogStart,
+    FogEnd = Lighting.FogEnd,
+    FogColor = Lighting.FogColor,
+    Ambient = Lighting.Ambient,
+    OutdoorAmbient = Lighting.OutdoorAmbient,
+    Brightness = Lighting.Brightness
+}
+
+-- Visual settings
+getgenv().VisualSettings = {
+    FogEnabled = false,
+    FogStart = 0,
+    FogEnd = 1000,
+    FogColor = Library2.Accent,
+
+    AmbientEnabled = false,
+    AmbientColor = Library2.Accent,
+    OutdoorAmbientColor = Library2.Accent,
+
+    Brightness = 2
+}
+
+-- Apply visuals function
+local function ApplyVisuals()
+    if getgenv().VisualSettings.FogEnabled then
+        Lighting.FogStart = getgenv().VisualSettings.FogStart
+        Lighting.FogEnd = getgenv().VisualSettings.FogEnd
+        Lighting.FogColor = getgenv().VisualSettings.FogColor
+    else
+        -- Restore original Roblox fog
+        Lighting.FogStart = OriginalLighting.FogStart
+        Lighting.FogEnd = OriginalLighting.FogEnd
+        Lighting.FogColor = OriginalLighting.FogColor
+    end
+
+    if getgenv().VisualSettings.AmbientEnabled then
+        Lighting.Ambient = getgenv().VisualSettings.AmbientColor
+        Lighting.OutdoorAmbient = getgenv().VisualSettings.OutdoorAmbientColor
+    else
+        -- Restore original Roblox ambient
+        Lighting.Ambient = OriginalLighting.Ambient
+        Lighting.OutdoorAmbient = OriginalLighting.OutdoorAmbient
+    end
+
+    -- Always apply brightness (you can optionally restore this too if needed)
+    Lighting.Brightness = getgenv().VisualSettings.Brightness
+end
+
+
+
+-- ========================
+-- UI Toggles / Sliders / Color Pickers
+-- ========================
+
+-- Fog Toggle
+VisualSec:Toggle({
+    Flag = "FogToggle",
+    Name = "Enable Fog",
+    State = getgenv().VisualSettings.FogEnabled,
+    Side = "Left",
+    Callback = function(v)
+        getgenv().VisualSettings.FogEnabled = v
+        ApplyVisuals()
+    end
+})
+
+-- Fog Start Slider
+VisualSec:Slider({
+    Flag = "FogStart",
+    Name = "Fog Start",
+    Def = getgenv().VisualSettings.FogStart,
+    Min = 0,
+    Max = 500,
+    Decimals = 1,
+    Side = "Left",
+    Callback = function(v)
+        getgenv().VisualSettings.FogStart = v
+        ApplyVisuals()
+    end
+})
+
+-- Fog End Slider
+VisualSec:Slider({
+    Flag = "FogEnd",
+    Name = "Fog End",
+    Def = getgenv().VisualSettings.FogEnd,
+    Min = 500,
+    Max = 5000,
+    Decimals = 1,
+    Side = "Left",
+    Callback = function(v)
+        getgenv().VisualSettings.FogEnd = v
+        ApplyVisuals()
+    end
+})
+
+-- Fog Color Picker
+VisualSec:Colorpicker({
+    Flag = "FogColor",
+    Name = "Fog Color",
+    Color = getgenv().VisualSettings.FogColor,
+    Side = "Left",
+    Callback = function(c)
+        getgenv().VisualSettings.FogColor = c
+        ApplyVisuals()
+    end
+})
+
+local Workspace, RunService, Players, CoreGui, Lighting = cloneref(game:GetService("Workspace")), cloneref(game:GetService("RunService")), cloneref(game:GetService("Players")), game:GetService("CoreGui"), cloneref(game:GetService("Lighting"))
+
+local ESP = {
+    Enabled = false,
+    TeamCheck = false,
+    MaxDistance = 200,
+    FontSize = 11,
+    TargetOnly = false,
+    FadeOut = {
+        OnDistance = true,
+        OnDeath = false,
+        OnLeave = false,
+    },
+    Options = { 
+        Teamcheck = false, TeamcheckRGB = Color3.fromRGB(0, 255, 0),
+        Friendcheck = true, FriendcheckRGB = Color3.fromRGB(0, 255, 0),
+        Highlight = false, HighlightRGB = Color3.fromRGB(255, 0, 0),
+    },
+    Drawing = {
+        Chams = {
+            Enabled  = false,
+            Thermal = false,
+            FillRGB = Color3.fromRGB(119, 120, 255),
+            Fill_Transparency = 100,
+            OutlineRGB = Color3.fromRGB(119, 120, 255),
+            Outline_Transparency = 100,
+            VisibleCheck = true,
+        },
+        Names = {
+            Enabled = false,
+            RGB = Color3.fromRGB(255, 255, 255),
+        },
+        Flags = {
+            Enabled = false,
+        },
+        Distances = {
+            Enabled = false, 
+            Position = "Text",
+            RGB = Color3.fromRGB(255, 255, 255),
+        },
+        Weapons = {
+            Enabled = false, WeaponTextRGB = Color3.fromRGB(119, 120, 255),
+            Outlined = false,
+            Gradient = false,
+            GradientRGB1 = Color3.fromRGB(255, 255, 255), GradientRGB2 = Color3.fromRGB(119, 120, 255),
+        },
+        Healthbar = {
+            Enabled = true,  
+            HealthText = true, Lerp = false, HealthTextRGB = Color3.fromRGB(119, 120, 255),
+            Width = 2.5,
+            Gradient = true, GradientRGB1 = Color3.fromRGB(200, 0, 0), GradientRGB2 = Color3.fromRGB(60, 60, 125), GradientRGB3 = Color3.fromRGB(119, 120, 255), 
+        },
+        Boxes = {
+            Animate = true,
+            RotationSpeed = 300,
+            Gradient = true, GradientRGB1 = Color3.fromRGB(119, 120, 255), GradientRGB2 = Color3.fromRGB(0, 0, 0), 
+            GradientFill = true, GradientFillRGB1 = Color3.fromRGB(119, 120, 255), GradientFillRGB2 = Color3.fromRGB(0, 0, 0), 
+            Filled = {
+                Enabled = true,
+                Transparency = 0.75,
+                RGB = Color3.fromRGB(0, 0, 0),
+            },
+            Full = {
+                Enabled = true,
+                RGB = Color3.fromRGB(255, 255, 255),
+            },
+            Corner = {
+                Enabled = true,
+                RGB = Color3.fromRGB(255, 255, 255),
+            },
+        };
+    };
+    Connections = {
+        RunService = RunService;
+    };
+    Fonts = {};
+}
+
+-- Def & Vars
+
+
+-- Ambient Toggle
+VisualSec:Toggle({
+    Flag = "AmbientToggle",
+    Name = "Enable Ambient",
+    State = getgenv().VisualSettings.AmbientEnabled,
+    Side = "Right",
+    Callback = function(v)
+        getgenv().VisualSettings.AmbientEnabled = v
+        ApplyVisuals()
+    end
+})
+
+
+-- Toggle ESP
+-- LEFT SIDE TOGGLES
+VisualSec:Toggle({
+    Flag = "ESPEnabled",
+    Name = "Enable ESP",
+    State = ESP.Enabled,
+    Side = "Left",
+    Callback = function(v)
+        ESP.Enabled = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPTeamCheck",
+    Name = "Team Check",
+    State = ESP.TeamCheck,
+    Side = "Left",
+    Callback = function(v)
+        ESP.TeamCheck = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPChams",
+    Name = "Chams",
+    State = ESP.Drawing.Chams.Enabled,
+    Side = "Left",
+    Callback = function(v)
+        ESP.Drawing.Chams.Enabled = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPChamsThermal",
+    Name = "Chams Thermal",
+    State = ESP.Drawing.Chams.Thermal,
+    Side = "Left",
+    Callback = function(v)
+        ESP.Drawing.Chams.Thermal = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPNames",
+    Name = "Names",
+    State = ESP.Drawing.Names.Enabled,
+    Side = "Left",
+    Callback = function(v)
+        ESP.Drawing.Names.Enabled = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPBoxesFull",
+    Name = "Boxes Full",
+    State = ESP.Drawing.Boxes.Full.Enabled,
+    Side = "Left",
+    Callback = function(v)
+        ESP.Drawing.Boxes.Full.Enabled = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPBoxesFilled",
+    Name = "Boxes Filled",
+    State = ESP.Drawing.Boxes.Filled.Enabled,
+    Side = "Left",
+    Callback = function(v)
+        ESP.Drawing.Boxes.Filled.Enabled = v
+    end
+})
+
+-- RIGHT SIDE TOGGLES
+VisualSec:Slider({
+    Flag = "ESPMaxDistance",
+    Name = "Max Distance",
+    Def = ESP.MaxDistance,
+    Min = 50,
+    Max = 800,
+    Decimals = 0,
+    Side = "Right",
+    Callback = function(v)
+        ESP.MaxDistance = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPHealthbar",
+    Name = "Healthbar",
+    State = ESP.Drawing.Healthbar.Enabled,
+    Side = "Right",
+    Callback = function(v)
+        ESP.Drawing.Healthbar.Enabled = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPHealthText",
+    Name = "Health Text",
+    State = ESP.Drawing.Healthbar.HealthText,
+    Side = "Right",
+    Callback = function(v)
+        ESP.Drawing.Healthbar.HealthText = v
+    end
+})
+
+VisualSec:Colorpicker({
+    Flag = "ESPHealthColor",
+    Name = "Health Color",
+    Color = ESP.Drawing.Healthbar.GradientRGB1,
+    Side = "Right",
+    Callback = function(c)
+        ESP.Drawing.Healthbar.GradientRGB1 = c
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ESPBoxesCorner",
+    Name = "Boxes Corner",
+    State = ESP.Drawing.Boxes.Corner.Enabled,
+    Side = "Right",
+    Callback = function(v)
+        ESP.Drawing.Boxes.Corner.Enabled = v
+    end
+})
+
+VisualSec:Colorpicker({
+    Flag = "ESPBoxesCornerColor",
+    Name = "Boxes Corner Color",
+    Color = ESP.Drawing.Boxes.Corner.RGB,
+    Side = "Right",
+    Callback = function(c)
+        ESP.Drawing.Boxes.Corner.RGB = c
+    end
+})
+
+VisualSec:Colorpicker({
+    Flag = "ESPNamesColor",
+    Name = "Names Color",
+    Color = ESP.Drawing.Names.RGB,
+    Side = "Right",
+    Callback = function(c)
+        ESP.Drawing.Names.RGB = c
+    end
+})
+
+
+-- Ambient Color Picker
+VisualSec:Colorpicker({
+    Flag = "AmbientColor",
+    Name = "Ambient Color",
+    Color = getgenv().VisualSettings.AmbientColor,
+    Side = "Right",
+    Callback = function(c)
+        getgenv().VisualSettings.AmbientColor = c
+        getgenv().VisualSettings.OutdoorAmbientColor = c
+        ApplyVisuals()
+    end
+})
+
+-- Brightness Slider
+VisualSec:Slider({
+    Flag = "Brightness",
+    Name = "Brightness",
+    Def = getgenv().VisualSettings.Brightness,
+    Min = 0,
+    Max = 5,
+    Side = "Right",
+    Callback = function(v)
+        getgenv().VisualSettings.Brightness = v
+        ApplyVisuals()
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "IndicatorEnabled",
+    Name = "Indicator",
+    State = true,
+    Side = "Left",
+    Callback = function(v)
+        Settings.Main.Visuals.Indicator.Enabled = v
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "ShowVelocity",
+    Name = "Show Velocity",
+    State = true,
+    Side = "Left",
+    Callback = function(v)
+        local misc = Settings.Main.Visuals.Indicator.Misc
+        if v and not Utils.Find(misc, "Velocity") then table.insert(misc, "Velocity") end
+        if not v then
+            for i=#misc,1,-1 do if misc[i]=="Velocity" then table.remove(misc,i) end end
+        end
+    end
+})
+
+
+
+
+VisualSec:Toggle({
+    Flag = "ShowPrediction",
+    Name = "Show Prediction",
+    State = true,
+    Side = "Left",
+    Callback = function(v)
+        local misc = Settings.Main.Visuals.Indicator.Misc
+        if v and not Utils.Find(misc, "Prediction") then table.insert(misc, "Prediction") end
+        if not v then
+            for i=#misc,1,-1 do if misc[i]=="Prediction" then table.remove(misc,i) end end
+        end
+    end
+})
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Attachment
+local AuraAttachment = Instance.new("Attachment")
+AuraAttachment.Name = "FX_Attach"
+
+-- Main colors
+local Color1 = Color3.fromRGB(234, 8, 255)
+local Color2 = Color3.fromRGB(238, 3, 255)
+local Color3_Star = Color3.fromRGB(226, 60, 255)
+local ColorSparks = Color3.fromRGB(255, 21, 255)
+
+-- Particle Emitters
+local function createParticles()
+    local emitters = {}
+
+    local HealingWave1 = Instance.new("ParticleEmitter")
+    HealingWave1.Name = "Healing1"
+    HealingWave1.Lifetime = NumberRange.new(1.5, 1.5)
+    HealingWave1.SpreadAngle = Vector2.new(10, -10)
+    HealingWave1.LockedToPart = true
+    HealingWave1.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(1, 1)})
+    HealingWave1.LightEmission = 0.4
+    HealingWave1.Color = ColorSequence.new(Color1)
+    HealingWave1.Speed = NumberRange.new(3, 6)
+    HealingWave1.Brightness = 10
+    HealingWave1.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 3), NumberSequenceKeypoint.new(1, 0.8)})
+    HealingWave1.Rate = 20
+    HealingWave1.Texture = "rbxassetid://8047533775"
+    HealingWave1.RotSpeed = NumberRange.new(200, 400)
+    HealingWave1.Rotation = NumberRange.new(-180, 180)
+    HealingWave1.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+    HealingWave1.Parent = AuraAttachment
+    table.insert(emitters, HealingWave1)
+
+    local HealingWave2 = Instance.new("ParticleEmitter")
+    HealingWave2.Name = "Healing2"
+    HealingWave2.Lifetime = NumberRange.new(1.5, 1.5)
+    HealingWave2.SpreadAngle = Vector2.new(10, -10)
+    HealingWave2.LockedToPart = true
+    HealingWave2.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(1, 1)})
+    HealingWave2.LightEmission = 1
+    HealingWave2.Color = ColorSequence.new(Color2)
+    HealingWave2.Speed = NumberRange.new(3, 5)
+    HealingWave2.Brightness = 10
+    HealingWave2.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 3.1), NumberSequenceKeypoint.new(1, 0.9)})
+    HealingWave2.Rate = 20
+    HealingWave2.Texture = "rbxassetid://8047796070"
+    HealingWave2.RotSpeed = NumberRange.new(100, 300)
+    HealingWave2.Rotation = NumberRange.new(-180, 180)
+    HealingWave2.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+    HealingWave2.Parent = AuraAttachment
+    table.insert(emitters, HealingWave2)
+
+    local Sparks = Instance.new("ParticleEmitter")
+    Sparks.Name = "Sparks"
+    Sparks.Lifetime = NumberRange.new(0.5, 2)
+    Sparks.SpreadAngle = Vector2.new(180, -180)
+    Sparks.LightEmission = 1
+    Sparks.Color = ColorSequence.new(ColorSparks)
+    Sparks.Drag = 3
+    Sparks.VelocitySpread = 180
+    Sparks.Speed = NumberRange.new(5, 15)
+    Sparks.Brightness = 10
+    Sparks.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.15, 0.4), NumberSequenceKeypoint.new(1, 0)})
+    Sparks.Acceleration = Vector3.new(0, 3, 0)
+    Sparks.ZOffset = -1
+    Sparks.Rate = 40
+    Sparks.Texture = "rbxassetid://8611887361"
+    Sparks.RotSpeed = NumberRange.new(-30, 30)
+    Sparks.Orientation = Enum.ParticleOrientation.VelocityParallel
+    Sparks.Parent = AuraAttachment
+    table.insert(emitters, Sparks)
+
+    local StarSparks = Instance.new("ParticleEmitter")
+    StarSparks.Name = "StarSparks"
+    StarSparks.Lifetime = NumberRange.new(1.5, 1.5)
+    StarSparks.SpreadAngle = Vector2.new(180, -180)
+    StarSparks.LightEmission = 1
+    StarSparks.Color = ColorSequence.new(Color3_Star)
+    StarSparks.Drag = 3
+    StarSparks.VelocitySpread = 180
+    StarSparks.Speed = NumberRange.new(5, 10)
+    StarSparks.Brightness = 10
+    StarSparks.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.15, 0.68), NumberSequenceKeypoint.new(1, 0)})
+    StarSparks.Acceleration = Vector3.new(0, 3, 0)
+    StarSparks.ZOffset = 2
+    StarSparks.Texture = "rbxassetid://8611887703"
+    StarSparks.RotSpeed = NumberRange.new(-30, 30)
+    StarSparks.Rotation = NumberRange.new(-30, 30)
+    StarSparks.Parent = AuraAttachment
+    table.insert(emitters, StarSparks)
+
+    return emitters
+end
+
+local emitters = createParticles()
+local auraEnabled = false
+
+local function toggleAura(force)
+    if not player.Character then return end
+    local torso = player.Character:FindFirstChild("LowerTorso")
+    if not torso then return end
+
+    if force ~= nil then
+        auraEnabled = force
+    else
+        auraEnabled = not auraEnabled
+    end
+
+    if auraEnabled then
+        AuraAttachment.Parent = torso
+        for _, emitter in ipairs(emitters) do
+            emitter.Enabled = true
+        end
+    else
+        for _, emitter in ipairs(emitters) do
+            emitter.Enabled = false
+        end
+        AuraAttachment.Parent = nil
+    end
+end
+
+-- Usage:
+
+
+
+
+
+local rs = game:GetService("RunService")
+local ts = game:GetService("TweenService")
+local plrs = game:GetService("Players")
+local lp = plrs.LocalPlayer
+
+local connections = {}
+
+-- bullet resolver
+local function GetBullet()
+    if workspace:FindFirstChild("Ignored") 
+       and workspace.Ignored:FindFirstChild("Siren") 
+       and workspace.Ignored.Siren:FindFirstChild("Radius") then
+        return { BulletPath = workspace.Ignored.Siren.Radius, BulletName = "BULLET_RAYS", BulletBeamName = "GunBeam" }
+    elseif workspace:FindFirstChild("Ignored") then
+        return { BulletPath = workspace.Ignored, BulletName = "BULLET_RAYS", BulletBeamName = "GunBeam" }
+    else
+        return { BulletPath = workspace, BulletName = "Part", BulletBeamName = "gb" }
+    end
+end
+
+local support = GetBullet()
+local bullet_beam_name = support.BulletBeamName
+local bullet_name = support.BulletName
+local bullet_path = support.BulletPath
+
+Configurations = {
+    Visuals = {
+        Bullet_Trails = {
+            Enabled = true,
+            Width = 1.0,
+            Duration = 3,
+            Fade = false,
+            FadeDuration = 3,
+            Color  = Library.Accent, -- make sure Library exists
+            Texture = "Electro"
+        }
+    }
+}
+
+local BulletTexture = {
+    Electro = "rbxassetid://139193109954329",
+    Cool = "rbxassetid://116848240236550",
+    Cum = "rbxassetid://88263664141635"
+}
+
+local utility = {}
+utility.instance_new = function(type, properties)
+    local instance = Instance.new(type)
+    for property, value in pairs(properties) do
+        instance[property] = value
+    end
+    return instance
+end
+
+utility.new_connection = function(signal, callback)
+    local connection = signal:Connect(callback)
+    table.insert(connections, connection)
+    return connection
+end
+
+-- basic easing for fade
+local function easeQuadIn(t) return t * t end
+
+utility.create_beam = function(BulletTex, wid, from, to, color_1, color_2, duration, fade_enabled, fade_duration)
+    local total_time = 0
+
+    local main_part = utility.instance_new("Part", {
+        Parent = workspace,
+        Size = Vector3.new(),
+        Massless = true,
+        Transparency = 1,
+        CanCollide = false,
+        Position = from,
+        Anchored = true
+    })
+
+    local part0 = utility.instance_new("Part", {Parent = main_part, Size = Vector3.new(), Massless = true, Transparency = 1, CanCollide = false, Position = from, Anchored = true})
+    local part1 = utility.instance_new("Part", {Parent = main_part, Size = Vector3.new(), Massless = true, Transparency = 1, CanCollide = false, Position = to, Anchored = true})
+
+    local attachment0 = utility.instance_new("Attachment", {Parent = part0})
+    local attachment1 = utility.instance_new("Attachment", {Parent = part1})
+
+    local beam = utility.instance_new("Beam", {
+        Texture = BulletTex,
+        TextureMode = Enum.TextureMode.Wrap,
+        TextureLength = 10,
+        LightEmission = 10, 
+        LightInfluence = 1,
+        FaceCamera = true,
+        ZOffset = -1,
+        Transparency = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(1, 1) }),
+        Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, color_1), ColorSequenceKeypoint.new(1, color_2) }),
+        Width0 = wid, 
+        Width1 = wid, 
+        Attachment0 = attachment0,
+        Attachment1 = attachment1,
+        Enabled = true,
+        Parent = main_part
+    })
+
+    local fadeConn
+    if fade_enabled then
+        fadeConn = utility.new_connection(rs.Heartbeat, function(dt)
+            total_time += dt
+            local alpha = math.clamp(total_time / fade_duration, 0, 1)
+            local eased = easeQuadIn(alpha)
+            beam.Transparency = NumberSequence.new(eased)
+        end)
+    end
+
+    task.delay(duration, function()
+        main_part:Destroy()
+        if fadeConn then fadeConn:Disconnect() end
+    end)
+end
+
+local function SirenAdded(Obj)
+    local Character = lp.Character
+    local RootPart = Character and Character:FindFirstChild("HumanoidRootPart")
+    if not RootPart then return end
+
+    local function VerifyBullet(obj)
+        return (obj.Name == bullet_name or obj:FindFirstChild("Attachment") or obj:FindFirstChild(bullet_beam_name)) and obj
+    end
+
+    local BulletRay = VerifyBullet(Obj)
+    if BulletRay then
+        local Mag = (RootPart.Position - BulletRay.Position).Magnitude
+        if Mag <= 13 then
+            local GunBeam = BulletRay:WaitForChild(bullet_beam_name)
+            local Attachment1 = GunBeam.Attachment1
+
+            if Configurations.Visuals.Bullet_Trails.Enabled then
+                GunBeam:Destroy()
+                utility.create_beam(
+                    BulletTexture[Configurations.Visuals.Bullet_Trails.Texture],
+                    Configurations.Visuals.Bullet_Trails.Width, 
+                    BulletRay.Position,
+                    Attachment1.WorldCFrame.Position,
+                    Configurations.Visuals.Bullet_Trails.Color,
+                    Configurations.Visuals.Bullet_Trails.Color,
+                    Configurations.Visuals.Bullet_Trails.Duration,
+                    Configurations.Visuals.Bullet_Trails.Fade,
+                    Configurations.Visuals.Bullet_Trails.FadeDuration
+                )
+            end
+        end
+    end
+end
+
+if bullet_path then
+    bullet_path.ChildAdded:Connect(SirenAdded)
+end
+
+VisualSec:Toggle({
+    Flag = "IndicatorEnabled",
+    Name = "Healing Aura",
+    State = true,
+    Side = "Right",
+    Callback = function(v)
+        toggleAura(v) 
+    end
+})
+
+VisualSec:Toggle({
+    Flag = "IndicatorEnabled",
+    Name = "Bullet Tracers",
+    State = true,
+    Side = "Right",
+    Callback = function(v)
+        Configurations.Visuals.Bullet_Trails.Enabled = v
+    end
+})
+
+VisualSec:Slider({
+    Flag = "Brightness",
+    Name = "Bullet Width",
+    Def = getgenv().VisualSettings.Brightness,
+    Min = 0,
+    Max = 5,
+    Side = "Right",
+    Callback = function(v)
+        Configurations.Visuals.Bullet_Trails.Width = v
+      
+    end
+})
+
+
+VisualSec:Slider({
+    Flag = "Brightness",
+    Name = "Bullet Width",
+    Def = getgenv().VisualSettings.Brightness,
+    Min = 0,
+    Max = 5,
+    Side = "Right",
+    Callback = function(v)
+        Configurations.Visuals.Bullet_Trails.Duration = v
+      
+    end
+})
+
+
+VisualSec:Toggle({
+    Flag = "IndicatorEnabled",
+    Name = "Fade",
+    State = true,
+    Side = "Right",
+    Callback = function(v)
+        Configurations.Visuals.Bullet_Trails.Fade = v
+    end
+})
+
+
+VisualSec:Slider({
+    Flag = "Brightness",
+    Name = "Bullet Width",
+    Def = getgenv().VisualSettings.Brightness,
+    Min = 0,
+    Max = 5,
+    Side = "Right",
+    Callback = function(v)
+        Configurations.Visuals.Bullet_Trails.Fade_Duration = v
+      
+    end
+})
+
+local BulletTexture = {"Electro", "Cool", "Cum"}
+
+
+Configurations.Visuals.Bullet_Trails.Texture = BulletTexture[1]
+
+
+VisualSec:List({
+    Flag = "BulletTextureList", 
+    Name = "Texture", 
+    Options = BulletTexture,      -- list of options in UI
+    Def = "Electro",              -- default selected
+    Suffix = "", 
+    Side = "Right", 
+    Callback = function(v)
+  
+Configurations.Visuals.Bullet_Trails.Texture = v
+        
+    end
+})
+
+
+
+
+
+ 
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local humanoidRootPart = character.HumanoidRootPart
+        local vel = humanoidRootPart.Velocity
+
+        if getgenv().cframespeedtoggle == true then
+            humanoidRootPart.CFrame = humanoidRootPart.CFrame +
+                character.Humanoid.MoveDirection * getgenv().speedvalue / 0.5
+        end
+
+        if getgenv().Psalms.AntiEnabled then
+            if getgenv().Psalms.AntiLock == "Predbreaker" then
+                humanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+            elseif getgenv().Psalms.AntiLock == "Sky" then
+                humanoidRootPart.Velocity = Vector3.new(0, 100, 0)
+            elseif getgenv().Psalms.AntiLock == "Ground" then
+                humanoidRootPart.Velocity = Vector3.new(0, -400, 0)
+            end
+        end
+
+        game:GetService("RunService").RenderStepped:Wait()
+        humanoidRootPart.Velocity = vel
+    end
+end)
+
+
+
+--// Crescent Slash
+
+local HitChamsFolder = Instance.new("Folder")
+HitChamsFolder.Name = "HitChamsFolder"
+HitChamsFolder.Parent = Workspace
+
+--// Crescent Slash
+
+do
+local Attachment = Instance.new("Attachment")
+Attachment.Name = "Attachment"
+
+HitEffectModule.Locals.Type["Crescent Slash"] = Attachment
+
+local Glow = Instance.new("ParticleEmitter")
+Glow.Name = "Glow"
+Glow.Lifetime = NumberRange.new(0.16, 0.16)
+Glow.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1421725, 0.6182796), NumberSequenceKeypoint.new(1, 1)})
+Glow.Color = ColorSequence.new(Color3.fromRGB(91, 177, 252))
+Glow.Speed = NumberRange.new(0, 0)
+Glow.Brightness = 5
+Glow.Size = NumberSequence.new(9.1873131, 16.5032349)
+Glow.Enabled = false
+Glow.ZOffset = -0.0565939
+Glow.Rate = 50
+Glow.Texture = "rbxassetid://8708637750"
+
+local Gradient1 = Instance.new("ParticleEmitter")
+Gradient1.Name = "Gradient1"
+Gradient1.Lifetime = NumberRange.new(0.3, 0.3)
+Gradient1.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.15, 0.3), NumberSequenceKeypoint.new(1, 1)})
+Gradient1.Color = ColorSequence.new(Color3.fromRGB(115, 201, 255))
+Gradient1.Speed = NumberRange.new(0, 0)
+Gradient1.Brightness = 6
+Gradient1.Size = NumberSequence.new(0, 11.6261358)
+Gradient1.Enabled = false
+Gradient1.ZOffset = 0.9187313
+Gradient1.Rate = 50
+Gradient1.Texture = "rbxassetid://8196169974"
+Gradient1.Parent = Attachment
+
+local Shards = Instance.new("ParticleEmitter")
+Shards.Name = "Shards"
+Shards.Lifetime = NumberRange.new(0.19, 0.7)
+Shards.SpreadAngle = Vector2.new(-90, 90)
+Shards.Color = ColorSequence.new(Color3.fromRGB(108, 184, 255))
+Shards.Drag = 10
+Shards.VelocitySpread = -90
+Shards.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5705521, 0.4125001), NumberSequenceKeypoint.new(1, -0.9375)})
+Shards.Speed = NumberRange.new(97.7530136, 146.9970093)
+Shards.Brightness = 4
+Shards.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.284774, 1.2389833, 0.1534118), NumberSequenceKeypoint.new(1, 0)})
+Shards.Enabled = false
+Shards.Acceleration = Vector3.new(0, -56.961341857910156, 0)
+Shards.ZOffset = 0.5705321
+Shards.Rate = 50
+Shards.Texture = "rbxassetid://8030734851"
+Shards.Rotation = NumberRange.new(90, 90)
+Shards.Orientation = Enum.ParticleOrientation.VelocityParallel
+Shards.Parent = Attachment
+
+local ShardsDark = Instance.new("ParticleEmitter")
+ShardsDark.Name = "ShardsDark"
+ShardsDark.Lifetime = NumberRange.new(0.19, 0.35)
+ShardsDark.SpreadAngle = Vector2.new(-90, 90)
+ShardsDark.Color = ColorSequence.new(Color3.fromRGB(108, 184, 255))
+ShardsDark.Drag = 10
+ShardsDark.VelocitySpread = -90
+ShardsDark.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5705521, 0.4125001), NumberSequenceKeypoint.new(1, -0.9375)})
+ShardsDark.Speed = NumberRange.new(97.7530136, 146.9970093)
+ShardsDark.Brightness = 4
+ShardsDark.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.290774, 0.6734411, 0.1534118), NumberSequenceKeypoint.new(1, 0)})
+ShardsDark.Enabled = false
+ShardsDark.ZOffset = 0.5705321
+ShardsDark.Rate = 50
+ShardsDark.Texture = "rbxassetid://8030734851"
+ShardsDark.Rotation = NumberRange.new(90, 90)
+ShardsDark.Orientation = Enum.ParticleOrientation.VelocityParallel
+ShardsDark.Parent = Attachment
+
+local Specs = Instance.new("ParticleEmitter")
+Specs.Name = "Specs"
+Specs.Lifetime = NumberRange.new(0.33, 1.4)
+Specs.SpreadAngle = Vector2.new(360, -1000)
+Specs.Color = ColorSequence.new(Color3.fromRGB(98, 174, 255))
+Specs.Drag = 10
+Specs.VelocitySpread = 360
+Specs.Speed = NumberRange.new(36.7492523, 146.9970093)
+Specs.Brightness = 7
+Specs.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.200774, 2.0311937, 0.4363973), NumberSequenceKeypoint.new(1, 0)})
+Specs.Enabled = false
+Specs.Acceleration = Vector3.new(0, 36.74925231933594, 0)
+Specs.Rate = 50
+Specs.Texture = "rbxassetid://8030760338"
+Specs.EmissionDirection = Enum.NormalId.Right
+Specs.Parent = Attachment
+
+local Specs1 = Instance.new("ParticleEmitter")
+Specs1.Name = "Specs"
+Specs1.Lifetime = NumberRange.new(0.33, 1.75)
+Specs1.SpreadAngle = Vector2.new(90, -90)
+Specs1.Color = ColorSequence.new(Color3.fromRGB(106, 171, 255))
+Specs1.Drag = 9
+Specs1.VelocitySpread = 90
+Specs1.Speed = NumberRange.new(42.2616425, 73.4985046)
+Specs1.Brightness = 6
+Specs1.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.210774, 0.3978962, 0.1855686), NumberSequenceKeypoint.new(1, 0)})
+Specs1.Enabled = false
+Specs1.Acceleration = Vector3.new(0, -20.21208953857422, 0)
+Specs1.ZOffset = 0.5144895
+Specs1.Rate = 50
+Specs1.Texture = "rbxassetid://8030760338"
+Specs1.Parent = Attachment
+
+local Specs2 = Instance.new("ParticleEmitter")
+Specs2.Name = "Specs"
+Specs2.Lifetime = NumberRange.new(0.19, 1.2)
+Specs2.SpreadAngle = Vector2.new(360, -1000)
+Specs2.Color = ColorSequence.new(Color3.fromRGB(98, 174, 255))
+Specs2.Drag = 10
+Specs2.VelocitySpread = 360
+Specs2.Speed = NumberRange.new(36.7492523, 146.9970093)
+Specs2.Brightness = 7
+Specs2.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.200774, 2.0311937, 0.4363973), NumberSequenceKeypoint.new(1, 0)})
+Specs2.Enabled = false
+Specs2.Acceleration = Vector3.new(0, 36.74925231933594, 0)
+Specs2.Rate = 50
+Specs2.Texture = "rbxassetid://8030760338"
+Specs2.EmissionDirection = Enum.NormalId.Right
+Specs2.Parent = Attachment
+
+local Specs21 = Instance.new("ParticleEmitter")
+Specs21.Name = "Specs2"
+Specs21.Lifetime = NumberRange.new(0.19, 1.35)
+Specs21.SpreadAngle = Vector2.new(90, -90)
+Specs21.Color = ColorSequence.new(Color3.fromRGB(106, 171, 255))
+Specs21.Drag = 12
+Specs21.VelocitySpread = 90
+Specs21.Speed = NumberRange.new(42.2616425, 73.4985046)
+Specs21.Brightness = 6
+Specs21.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.216774, 0.5721694, 0.1855686), NumberSequenceKeypoint.new(1, 0)})
+Specs21.Enabled = false
+Specs21.Acceleration = Vector3.new(0, -20.21208953857422, 0)
+Specs21.ZOffset = 0.5144895
+Specs21.Rate = 50
+Specs21.Texture = "rbxassetid://8030760338"
+Specs21.Parent = Attachment
+
+local ddddddddddddddddddd = Instance.new("ParticleEmitter")
+ddddddddddddddddddd.Name = "ddddddddddddddddddd"
+ddddddddddddddddddd.Lifetime = NumberRange.new(0.19, 0.37)
+ddddddddddddddddddd.SpreadAngle = Vector2.new(90, -90)
+ddddddddddddddddddd.LockedToPart = true
+ddddddddddddddddddd.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.6429392, 0), NumberSequenceKeypoint.new(1, 0)})
+ddddddddddddddddddd.LightEmission = 1
+ddddddddddddddddddd.Color = ColorSequence.new(Color3.fromRGB(90, 184, 255), Color3.fromRGB(165, 251, 255))
+ddddddddddddddddddd.Drag = 6
+ddddddddddddddddddd.TimeScale = 0.7
+ddddddddddddddddddd.VelocitySpread = 90
+ddddddddddddddddddd.Speed = NumberRange.new(81.5833435, 110.2477646)
+ddddddddddddddddddd.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.410774, 0.6711507, 0.3356177), NumberSequenceKeypoint.new(1, 0)})
+ddddddddddddddddddd.Enabled = false
+ddddddddddddddddddd.Acceleration = Vector3.new(0, -81.58334350585938, 0)
+ddddddddddddddddddd.ZOffset = 0.8345273
+ddddddddddddddddddd.Rate = 50
+ddddddddddddddddddd.Texture = "rbxassetid://1053546634"
+ddddddddddddddddddd.RotSpeed = NumberRange.new(-444, 166)
+ddddddddddddddddddd.Rotation = NumberRange.new(-360, 360)
+ddddddddddddddddddd.Parent = Attachment
+
+local large_shard = Instance.new("ParticleEmitter")
+large_shard.Name = "large_shard"
+large_shard.Lifetime = NumberRange.new(0.19, 0.28)
+large_shard.SpreadAngle = Vector2.new(-90, 90)
+large_shard.Color = ColorSequence.new(Color3.fromRGB(108, 184, 255))
+large_shard.Drag = 10
+large_shard.VelocitySpread = -90
+large_shard.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5705521, 0.4125001), NumberSequenceKeypoint.new(1, -0.9375)})
+large_shard.Speed = NumberRange.new(97.7530136, 146.9970093)
+large_shard.Brightness = 4
+large_shard.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.260774, 3.515605, 0.1534118), NumberSequenceKeypoint.new(1, 0)})
+large_shard.Enabled = false
+large_shard.ZOffset = 0.5705321
+large_shard.Rate = 50
+large_shard.Texture = "rbxassetid://8030734851"
+large_shard.Rotation = NumberRange.new(90, 90)
+large_shard.Orientation = Enum.ParticleOrientation.VelocityParallel
+large_shard.Parent = Attachment
+
+local out_Specs = Instance.new("ParticleEmitter")
+out_Specs.Name = "out_Specs"
+out_Specs.Lifetime = NumberRange.new(0.19, 1)
+out_Specs.SpreadAngle = Vector2.new(44, -1000)
+out_Specs.Color = ColorSequence.new(Color3.fromRGB(98, 174, 255))
+out_Specs.Drag = 10
+out_Specs.VelocitySpread = 44
+out_Specs.Speed = NumberRange.new(36.7492523, 146.9970093)
+out_Specs.Brightness = 7
+out_Specs.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.244774, 0.5469525, 0.1433053), NumberSequenceKeypoint.new(1, 0)})
+out_Specs.Enabled = false
+out_Specs.Acceleration = Vector3.new(0, -3.215559720993042, 0)
+out_Specs.Rate = 50
+out_Specs.Texture = "rbxassetid://8030760338"
+out_Specs.EmissionDirection = Enum.NormalId.Right
+out_Specs.Parent = Attachment
+
+local Effect = Instance.new("ParticleEmitter")
+Effect.Name = "Effect"
+Effect.Lifetime = NumberRange.new(0.4, 0.7)
+Effect.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+Effect.SpreadAngle = Vector2.new(360, -360)
+Effect.LockedToPart = true
+Effect.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1070999, 0.19375), NumberSequenceKeypoint.new(0.7761194, 0.88125), NumberSequenceKeypoint.new(1, 1)})
+Effect.LightEmission = 1
+Effect.Color = ColorSequence.new(Color3.fromRGB(92, 161, 252))
+Effect.Drag = 1
+Effect.VelocitySpread = 360
+Effect.Speed = NumberRange.new(0.0036749, 0.0036749)
+Effect.Brightness = 2.0999999
+Effect.Size = NumberSequence.new(6.9680691, 9.9213123)
+Effect.Enabled = false
+Effect.ZOffset = 0.4777403
+Effect.Rate = 50
+Effect.Texture = "rbxassetid://9484012464"
+Effect.RotSpeed = NumberRange.new(-150, -150)
+Effect.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+Effect.Rotation = NumberRange.new(50, 50)
+Effect.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Effect.Parent = Attachment
+
+local Crescents = Instance.new("ParticleEmitter")
+Crescents.Name = "Crescents"
+Crescents.Lifetime = NumberRange.new(0.19, 0.38)
+Crescents.SpreadAngle = Vector2.new(-360, 360)
+Crescents.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1932907, 0), NumberSequenceKeypoint.new(0.778754, 0), NumberSequenceKeypoint.new(1, 1)})
+Crescents.LightEmission = 1
+Crescents.Color = ColorSequence.new(Color3.fromRGB(92, 161, 252))
+Crescents.VelocitySpread = -360
+Crescents.Speed = NumberRange.new(0.0826858, 0.0826858)
+Crescents.Brightness = 20
+Crescents.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.398774, 8.8026266, 2.2834616), NumberSequenceKeypoint.new(1, 11.477972, 1.860431)})
+Crescents.Enabled = false
+Crescents.ZOffset = 0.4542207
+Crescents.Rate = 50
+Crescents.Texture = "rbxassetid://12509373457"
+Crescents.RotSpeed = NumberRange.new(800, 1000)
+Crescents.Rotation = NumberRange.new(-360, 360)
+Crescents.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Crescents.Parent = Attachment
+end
+
+do --// Cosmic Explosion
+
+
+local Attachment = Instance.new("Attachment")
+Attachment.Name = "Attachment"
+
+HitEffectModule.Locals.Type["Cosmic Explosion"] = Attachment
+
+local Glow = Instance.new("ParticleEmitter")
+Glow.Name = "Glow"
+Glow.Lifetime = NumberRange.new(0.16, 0.16)
+Glow.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1421725, 0.6182796), NumberSequenceKeypoint.new(1, 1)})
+Glow.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Glow.Speed = NumberRange.new(0, 0)
+Glow.Brightness = 5
+Glow.Size = NumberSequence.new(9.1873131, 16.5032349)
+Glow.Enabled = false
+Glow.ZOffset = -0.0565939
+Glow.Rate = 50
+Glow.Texture = "rbxassetid://8708637750"
+Glow.Parent = Attachment
+
+local Effect = Instance.new("ParticleEmitter")
+Effect.Name = "Effect"
+Effect.Lifetime = NumberRange.new(0.4, 0.7)
+Effect.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+Effect.SpreadAngle = Vector2.new(360, -360)
+Effect.LockedToPart = true
+Effect.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1070999, 0.19375), NumberSequenceKeypoint.new(0.7761194, 0.88125), NumberSequenceKeypoint.new(1, 1)})
+Effect.LightEmission = 1
+Effect.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Effect.Drag = 1
+Effect.VelocitySpread = 360
+Effect.Speed = NumberRange.new(0.0036749, 0.0036749)
+Effect.Brightness = 2.0999999
+Effect.Size = NumberSequence.new(6.9680691, 9.9213123)
+Effect.Enabled = false
+Effect.ZOffset = 0.4777403
+Effect.Rate = 50
+Effect.Texture = "rbxassetid://9484012464"
+Effect.RotSpeed = NumberRange.new(-150, -150)
+Effect.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+Effect.Rotation = NumberRange.new(50, 50)
+Effect.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Effect.Parent = Attachment
+
+local Gradient1 = Instance.new("ParticleEmitter")
+Gradient1.Name = "Gradient1"
+Gradient1.Lifetime = NumberRange.new(0.3, 0.3)
+Gradient1.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.15, 0.3), NumberSequenceKeypoint.new(1, 1)})
+Gradient1.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Gradient1.Speed = NumberRange.new(0, 0)
+Gradient1.Brightness = 6
+Gradient1.Size = NumberSequence.new(0, 11.6261358)
+Gradient1.Enabled = false
+Gradient1.ZOffset = 0.9187313
+Gradient1.Rate = 50
+Gradient1.Texture = "rbxassetid://8196169974"
+Gradient1.Parent = Attachment
+
+local Shards = Instance.new("ParticleEmitter")
+Shards.Name = "Shards"
+Shards.Lifetime = NumberRange.new(0.19, 0.7)
+Shards.SpreadAngle = Vector2.new(-90, 90)
+Shards.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Shards.Drag = 10
+Shards.VelocitySpread = -90
+Shards.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5705521, 0.4125001), NumberSequenceKeypoint.new(1, -0.9375)})
+Shards.Speed = NumberRange.new(97.7530136, 146.9970093)
+Shards.Brightness = 4
+Shards.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.284774, 1.2389833, 0.1534118), NumberSequenceKeypoint.new(1, 0)})
+Shards.Enabled = false
+Shards.Acceleration = Vector3.new(0, -56.961341857910156, 0)
+Shards.ZOffset = 0.5705321
+Shards.Rate = 50
+Shards.Texture = "rbxassetid://8030734851"
+Shards.Rotation = NumberRange.new(90, 90)
+Shards.Orientation = Enum.ParticleOrientation.VelocityParallel
+Shards.Parent = Attachment
+
+local Crescents = Instance.new("ParticleEmitter")
+Crescents.Name = "Crescents"
+Crescents.Lifetime = NumberRange.new(0.19, 0.38)
+Crescents.SpreadAngle = Vector2.new(-360, 360)
+Crescents.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1932907, 0), NumberSequenceKeypoint.new(0.778754, 0), NumberSequenceKeypoint.new(1, 1)})
+Crescents.LightEmission = 10
+Crescents.Color = ColorSequence.new(Color3.fromRGB(160, 96, 255))
+Crescents.VelocitySpread = -360
+Crescents.Speed = NumberRange.new(0.0826858, 0.0826858)
+Crescents.Brightness = 4
+Crescents.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.398774, 8.8026266, 2.2834616), NumberSequenceKeypoint.new(1, 11.477972, 1.860431)})
+Crescents.Enabled = false
+Crescents.ZOffset = 0.4542207
+Crescents.Rate = 50
+Crescents.Texture = "rbxassetid://12509373457"
+Crescents.RotSpeed = NumberRange.new(800, 1000)
+Crescents.Rotation = NumberRange.new(-360, 360)
+Crescents.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Crescents.Parent = Attachment
+
+local ParticleEmitter2 = Instance.new("ParticleEmitter")
+ParticleEmitter2.Name = "ParticleEmitter2"
+ParticleEmitter2.FlipbookFramerate = NumberRange.new(20, 20)
+ParticleEmitter2.Lifetime = NumberRange.new(0.19, 0.38)
+ParticleEmitter2.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+ParticleEmitter2.SpreadAngle = Vector2.new(360, 360)
+ParticleEmitter2.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.209842, 0.5), NumberSequenceKeypoint.new(0.503842, 0.263333), NumberSequenceKeypoint.new(0.799842, 0.5), NumberSequenceKeypoint.new(1, 1)})
+ParticleEmitter2.LightEmission = 1
+ParticleEmitter2.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+ParticleEmitter2.VelocitySpread = 360
+ParticleEmitter2.Speed = NumberRange.new(0.0161231, 0.0161231)
+ParticleEmitter2.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 4.3125), NumberSequenceKeypoint.new(0.3985056, 7.9375), NumberSequenceKeypoint.new(1, 10)})
+ParticleEmitter2.Enabled = false
+ParticleEmitter2.ZOffset = 0.15
+ParticleEmitter2.Rate = 100
+ParticleEmitter2.Texture = "http://www.roblox.com/asset/?id=12394566430"
+ParticleEmitter2.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+ParticleEmitter2.Rotation = NumberRange.new(39, 999)
+ParticleEmitter2.Orientation = Enum.ParticleOrientation.VelocityParallel
+ParticleEmitter2.Parent = Attachment
+end
+
+do --// Coom
+
+local Attachment = Instance.new("Attachment")
+
+HitEffectModule.Locals.Type["Coom"] = Attachment
+
+local Foam = Instance.new("ParticleEmitter")
+Foam.Name = "Foam"
+Foam.LightInfluence = 0.5
+Foam.Lifetime = NumberRange.new(1, 1)
+Foam.SpreadAngle = Vector2.new(360, -360)
+Foam.VelocitySpread = 360
+Foam.Squash = NumberSequence.new(1)
+Foam.Speed = NumberRange.new(20, 20)
+Foam.Brightness = 2.5
+Foam.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.1016692, 0.6508875, 0.6508875), NumberSequenceKeypoint.new(0.6494689, 1.4201183, 0.4127519), NumberSequenceKeypoint.new(1, 0)})
+Foam.Enabled = false
+Foam.Acceleration = Vector3.new(0, -66.04029846191406, 0)
+Foam.Rate = 100
+Foam.Texture = "rbxassetid://8297030850"
+Foam.Rotation = NumberRange.new(-90, -90)
+Foam.Orientation = Enum.ParticleOrientation.VelocityParallel
+Foam.Parent = Attachment
+end
+
+do --// Slash
+local Attachment = Instance.new("Attachment")
+HitEffectModule.Locals.Type["Slash"] = Attachment
+
+local Crescents = Instance.new("ParticleEmitter")
+Crescents.Name = "Crescents"
+Crescents.Lifetime = NumberRange.new(0.19, 0.38)
+Crescents.SpreadAngle = Vector2.new(-360, 360)
+Crescents.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1932907, 0), NumberSequenceKeypoint.new(0.778754, 0), NumberSequenceKeypoint.new(1, 1)})
+Crescents.LightEmission = 10
+Crescents.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.fromRGB(160, 96, 255)), ColorSequenceKeypoint.new(0.3160622, Color3.fromRGB(160, 96, 255)), ColorSequenceKeypoint.new(0.5146805, Color3.fromRGB(154, 82, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(160, 96, 255))})
+Crescents.VelocitySpread = -360
+Crescents.Speed = NumberRange.new(0.0826858, 0.0826858)
+Crescents.Brightness = 4
+Crescents.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.398774, 8.8026266, 2.2834616), NumberSequenceKeypoint.new(1, 11.477972, 1.860431)})
+Crescents.Enabled = false
+Crescents.ZOffset = 0.4542207
+Crescents.Rate = 50
+Crescents.Texture = "rbxassetid://12509373457"
+Crescents.RotSpeed = NumberRange.new(800, 1000)
+Crescents.Rotation = NumberRange.new(-360, 360)
+Crescents.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Crescents.Parent = Attachment
+end
+
+do --// Atomic Slash
+
+
+local Attachment = Instance.new("Attachment")
+
+HitEffectModule.Locals.Type["Atomic Slash"] = Attachment
+
+local Crescents = Instance.new("ParticleEmitter")
+Crescents.Name = "Crescents"
+Crescents.Lifetime = NumberRange.new(0.19, 0.38)
+Crescents.SpreadAngle = Vector2.new(-360, 360)
+Crescents.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1932907, 0), NumberSequenceKeypoint.new(0.778754, 0), NumberSequenceKeypoint.new(1, 1)})
+Crescents.LightEmission = 10
+Crescents.Color = ColorSequence.new(Color3.fromRGB(160, 96, 255))
+Crescents.VelocitySpread = -360
+Crescents.Speed = NumberRange.new(0.0826858, 0.0826858)
+Crescents.Brightness = 4
+Crescents.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.398774, 8.8026266, 2.2834616), NumberSequenceKeypoint.new(1, 11.477972, 1.860431)})
+Crescents.Enabled = false
+Crescents.ZOffset = 0.4542207
+Crescents.Rate = 50
+Crescents.Texture = "rbxassetid://12509373457"
+Crescents.RotSpeed = NumberRange.new(800, 1000)
+Crescents.Rotation = NumberRange.new(-360, 360)
+Crescents.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Crescents.Parent = Attachment
+
+local Glow = Instance.new("ParticleEmitter")
+Glow.Name = "Glow"
+Glow.Lifetime = NumberRange.new(0.16, 0.16)
+Glow.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1421725, 0.6182796), NumberSequenceKeypoint.new(1, 1)})
+Glow.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Glow.Speed = NumberRange.new(0, 0)
+Glow.Brightness = 5
+Glow.Size = NumberSequence.new(9.1873131, 16.5032349)
+Glow.Enabled = false
+Glow.ZOffset = -0.0565939
+Glow.Rate = 50
+Glow.Texture = "rbxassetid://8708637750"
+Glow.Parent = Attachment
+
+local Effect = Instance.new("ParticleEmitter")
+Effect.Name = "Effect"
+Effect.Lifetime = NumberRange.new(0.4, 0.7)
+Effect.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+Effect.SpreadAngle = Vector2.new(360, -360)
+Effect.LockedToPart = true
+Effect.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.1070999, 0.19375), NumberSequenceKeypoint.new(0.7761194, 0.88125), NumberSequenceKeypoint.new(1, 1)})
+Effect.LightEmission = 1
+Effect.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Effect.Drag = 1
+Effect.VelocitySpread = 360
+Effect.Speed = NumberRange.new(0.0036749, 0.0036749)
+Effect.Brightness = 2.0999999
+Effect.Size = NumberSequence.new(6.9680691, 9.9213123)
+Effect.Enabled = false
+Effect.ZOffset = 0.4777403
+Effect.Rate = 50
+Effect.Texture = "rbxassetid://9484012464"
+Effect.RotSpeed = NumberRange.new(-150, -150)
+Effect.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+Effect.Rotation = NumberRange.new(50, 50)
+Effect.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+Effect.Parent = Attachment
+
+local Gradient1 = Instance.new("ParticleEmitter")
+Gradient1.Name = "Gradient1"
+Gradient1.Lifetime = NumberRange.new(0.3, 0.3)
+Gradient1.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.15, 0.3), NumberSequenceKeypoint.new(1, 1)})
+Gradient1.Color = ColorSequence.new(Color3.fromRGB(173, 82, 252))
+Gradient1.Speed = NumberRange.new(0, 0)
+Gradient1.Brightness = 6
+Gradient1.Size = NumberSequence.new(0, 11.6261358)
+Gradient1.Enabled = false
+Gradient1.ZOffset = 0.9187313
+Gradient1.Rate = 50
+Gradient1.Texture = "rbxassetid://8196169974"
+Gradient1.Parent = Attachment
+
+local Shards = Instance.new("ParticleEmitter")
+Shards.Name = "Shards"
+Shards.Lifetime = NumberRange.new(0.19, 0.7)
+Shards.SpreadAngle = Vector2.new(-90, 90)
+Shards.Color = ColorSequence.new(Color3.fromRGB(179, 145, 253))
+Shards.Drag = 10
+Shards.VelocitySpread = -90
+Shards.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0, 1), NumberSequenceKeypoint.new(0.5705521, 0.4125001), NumberSequenceKeypoint.new(1, -0.9375)})
+Shards.Speed = NumberRange.new(97.7530136, 146.9970093)
+Shards.Brightness = 4
+Shards.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 0), NumberSequenceKeypoint.new(0.284774, 1.2389833, 0.1534118), NumberSequenceKeypoint.new(1, 0)})
+Shards.Enabled = false
+Shards.Acceleration = Vector3.new(0, -56.961341857910156, 0)
+Shards.ZOffset = 0.5705321
+Shards.Rate = 50
+Shards.Texture = "rbxassetid://8030734851"
+Shards.Rotation = NumberRange.new(90, 90)
+Shards.Orientation = Enum.ParticleOrientation.VelocityParallel
+Shards.Parent = Attachment
+end
+
+
+
+
+do --// Aura Burst
+    local attachment = Instance.new("Attachment")
+    attachment.Name = "Attachment"
+    HitEffectModule.Locals.Type["AuraBurst"] = attachment
+    
+
+local useparticle2 = Instance.new('ParticleEmitter')
+useparticle2.Name = "useparticle2"
+useparticle2.Acceleration = Vector3.new(0, 10, 0)
+useparticle2.Brightness = 10
+useparticle2.Color = ColorSequence.new(Color3.new(0, 1, 0.333333), Color3.new(0, 0, 1))
+useparticle2.Drag = 3
+useparticle2.Enabled = false
+useparticle2.Lifetime = NumberRange.new(0.3, 10)
+useparticle2.LightEmission = 1
+useparticle2.Rate = 50
+useparticle2.RotSpeed = NumberRange.new(-150, 150)
+useparticle2.Rotation = NumberRange.new(-360, 360)
+useparticle2.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.19467, 0.819203),
+    NumberSequenceKeypoint.new(1, 0)
+})
+useparticle2.Speed = NumberRange.new(4.49742, 34.4802)
+useparticle2.SpreadAngle = Vector2.new(360, 360)
+useparticle2.Texture = "rbxassetid://16171528032"
+useparticle2.Parent = attachment
+
+local useparticle = Instance.new('ParticleEmitter')
+useparticle.Name = "useparticle"
+useparticle.Acceleration = Vector3.new(0, 10, 0)
+useparticle.Brightness = 10
+useparticle.Color = ColorSequence.new(Color3.new(0, 1, 0.403922), Color3.new(0.12549, 0, 1))
+useparticle.Drag = 3
+useparticle.Enabled = false
+useparticle.Lifetime = NumberRange.new(0.3, 10)
+useparticle.LightEmission = 1
+useparticle.Rate = 50
+useparticle.RotSpeed = NumberRange.new(-150, 150)
+useparticle.Rotation = NumberRange.new(-360, 360)
+useparticle.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.19467, 0.819203),
+    NumberSequenceKeypoint.new(1, 0)
+})
+useparticle.Speed = NumberRange.new(4.49742, 34.4802)
+useparticle.SpreadAngle = Vector2.new(360, 360)
+useparticle.Texture = "rbxassetid://16171528032"
+useparticle.Parent = attachment
+
+local circles2 = Instance.new('ParticleEmitter')
+circles2.Name = "circles2"
+circles2.Acceleration = Vector3.new(0, 0, 0.001)
+circles2.Brightness = 10
+circles2.Color = ColorSequence.new(Color3.new(0, 1, 0.541176), Color3.new(0.0784314, 0, 1))
+circles2.Enabled = false
+circles2.Lifetime = NumberRange.new(0.9, 0.9)
+circles2.LightInfluence = 0.35
+circles2.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+circles2.Rate = 4
+circles2.RotSpeed = NumberRange.new(150, 150)
+circles2.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.20394, 8.79781),
+    NumberSequenceKeypoint.new(1, 10)
+})
+circles2.Speed = NumberRange.new(0.01, 0.01)
+circles2.SpreadAngle = Vector2.new(360, 360)
+circles2.Texture = "http://www.roblox.com/asset/?id=6835970470"
+circles2.Transparency = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.840125, 0.83125),
+    NumberSequenceKeypoint.new(1, 1)
+})
+circles2.Parent = attachment
+
+local circles = Instance.new('ParticleEmitter')
+circles.Name = "circles"
+circles.Acceleration = Vector3.new(0, 0, 0.001)
+circles.Brightness = 10
+circles.Color = ColorSequence.new(Color3.new(0, 1, 0.45098), Color3.new(0.133333, 0, 1))
+circles.Enabled = false
+circles.Lifetime = NumberRange.new(0.9, 0.9)
+circles.LightInfluence = 0.35
+circles.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+circles.Rate = 4
+circles.RotSpeed = NumberRange.new(150, 150)
+circles.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.20394, 8.79781),
+    NumberSequenceKeypoint.new(1, 10)
+})
+circles.Speed = NumberRange.new(0.01, 0.01)
+circles.SpreadAngle = Vector2.new(360, 360)
+circles.Texture = "http://www.roblox.com/asset/?id=6835970470"
+circles.Transparency = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.840125, 0.83125),
+    NumberSequenceKeypoint.new(1, 1)
+})
+circles.Parent = attachment
+end
+
+do --// Thunder
+    local attachment = Instance.new("Attachment")
+    attachment.Name = "Attachment"
+HitEffectModule.Locals.Type["Thunder"] = attachment
+
+local ELECTRIC2 = Instance.new('ParticleEmitter')
+ELECTRIC2.Parent = attachment
+ELECTRIC2.Name = "ELECTRIC"
+ELECTRIC2.Brightness = 3
+ELECTRIC2.Color = ColorSequence.new(Color3.new(0, 0.52549, 0.780392), Color3.new(1, 0, 1))
+ELECTRIC2.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid8x8
+ELECTRIC2.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+ELECTRIC2.Lifetime = NumberRange.new(1, 3)
+ELECTRIC2.LightEmission = 1
+ELECTRIC2.Orientation = Enum.ParticleOrientation.FacingCameraWorldUp
+ELECTRIC2.Rate = 5
+ELECTRIC2.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 19),
+    NumberSequenceKeypoint.new(1, 0)
+})
+ELECTRIC2.Speed = NumberRange.new(0, 0)
+ELECTRIC2.SpreadAngle = Vector2.new(-360, 360)
+ELECTRIC2.Texture = "rbxassetid://10547286472"
+ELECTRIC2.Transparency = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 0),
+    NumberSequenceKeypoint.new(0.25, 1),
+    NumberSequenceKeypoint.new(1, 1)
+})
+
+local ParticleEmitter = Instance.new('ParticleEmitter') 
+ParticleEmitter.Color = ColorSequence.new(
+    Color3.fromRGB(0, 0, 255),
+    Color3.fromRGB(0, 0, 255),
+    Color3.fromRGB(0, 0, 255),
+    Color3.fromRGB(0, 0, 139)
+)
+ParticleEmitter.Drag = 5
+ParticleEmitter.Lifetime = NumberRange.new(0.4, 0.4)
+ParticleEmitter.LightEmission = 0.5
+ParticleEmitter.Rate = 5
+ParticleEmitter.Parent = attachment
+ParticleEmitter.RotSpeed = NumberRange.new(200, 250)
+ParticleEmitter.Rotation = NumberRange.new(-360, 360)
+ParticleEmitter.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 7),
+    NumberSequenceKeypoint.new(1, 0)
+})
+ParticleEmitter.Speed = NumberRange.new(0, 0)
+ParticleEmitter.Texture = "http://www.roblox.com/asset/?id=467188845"
+ParticleEmitter.Transparency = NumberSequence.new(0, 0.43125, 0, 0.299656, 0.04375, 0, 0.874618, 0, 0, 1, 0, 0)
+ParticleEmitter.ZOffset = 1
+end
+
+
+do
+    local part = Instance.new("Part")
+    part.Parent = ReplicatedStorage
+    local attachment = Instance.new("Attachment")
+    attachment.Name = "Attachment"
+    attachment.Parent = part
+    HitEffectModule.Locals.Type["Nova"] = attachment
+
+    local function createParticleEmitter(acceleration)
+        local emitter = Instance.new("ParticleEmitter")
+        emitter.Name = "ParticleEmitter"
+        emitter.Acceleration = acceleration
+        emitter.Color = ColorSequence.new({
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+            ColorSequenceKeypoint.new(0.495, HitEffectModule.Settings.HitEffect.Color),
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+        })
+        emitter.Lifetime = NumberRange.new(0.5, 0.5)
+        emitter.LightEmission = 1
+        emitter.LockedToPart = true
+        emitter.Rate = 1
+        emitter.Rotation = NumberRange.new(0, 360)
+        emitter.Size = NumberSequence.new({
+            NumberSequenceKeypoint.new(0, 1),
+            NumberSequenceKeypoint.new(1, 10),
+            NumberSequenceKeypoint.new(1, 1)
+        })
+        emitter.Speed = NumberRange.new(0, 0)
+        emitter.Texture = "rbxassetid://1084991215"
+        emitter.Transparency = NumberSequence.new({
+            NumberSequenceKeypoint.new(0, 0),
+            NumberSequenceKeypoint.new(0, 0.1),
+            NumberSequenceKeypoint.new(0.534, 0.25),
+            NumberSequenceKeypoint.new(1, 0.5),
+            NumberSequenceKeypoint.new(1, 0)
+        })
+        emitter.ZOffset = 1
+        emitter.Parent = attachment
+        return emitter
+    end
+
+    createParticleEmitter(Vector3.new(0, 0, 1))
+    local perpendicularEmitter = createParticleEmitter(Vector3.new(0, 1, -0.001))
+    perpendicularEmitter.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+end
+
+HitEffectModule.Functions.Effect = function(character, color)
+    if not SettingsBlah.HitEffect and character then return end
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    if not humanoidRootPart then return end
+
+    local effectAttachment = HitEffectModule.Locals.Type[SettingsBlah.HitEffectType]:Clone()
+    effectAttachment.Parent = humanoidRootPart
+
+    for _, emitter in pairs(effectAttachment:GetChildren()) do
+        if emitter:IsA("ParticleEmitter") then
+            emitter.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+                ColorSequenceKeypoint.new(0.495, color),
+                ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+            })
+            emitter:Emit()
+        end
+    end
+
+    task.delay(2, function()
+        effectAttachment:Destroy()
+    end)
+end
+
+
+
+
+local UserInputService = game:GetService("UserInputService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local CoreGui = game:GetService("CoreGui")
+local dragging, dragInput, dragStart, startPos
+
+
+local function createScreenGui()
+    local existingGui = CoreGui:FindFirstChild("MyScreenGui")
+    if existingGui then
+        return existingGui
+    end
+
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "MyScreenGui"
+    screenGui.Parent = CoreGui
+    return screenGui
+end
+
+local function initializeToggleButton(screenGui)
+
+    -- Create an ImageButton
+    local button = Instance.new("ImageButton")
+    button.Size = UDim2.new(0, 40, 0, 40) -- small square
+    button.Position = UDim2.new(1, -60, 0, 80) -- right side, slightly inset
+    button.Image = "rbxassetid://135675373163437"
+    button.BackgroundColor3 = Color3.fromRGB(30, 30, 30) -- subtle dark bg
+    button.BackgroundTransparency = 0 -- visible bg behind image
+    button.BorderSizePixel = 0
+    button.ScaleType = Enum.ScaleType.Fit -- fit image nicely
+
+    -- Rounded corners
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 8) -- slightly rounded square
+    corner.Parent = button
+
+    button.Parent = screenGui
+
+    -- Dragging + Toggle Logic
+    button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+            -- Toggle visibility
+            Library.Holder.Visible = not Library.Holder.Visible
+
+            dragging = true
+            dragStart = input.Position
+            startPos = button.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    button.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) then
+            dragInput = input
+            local delta = dragInput.Position - dragStart
+            button.Position = UDim2.new(
+                startPos.X.Scale, startPos.X.Offset + delta.X,
+                startPos.Y.Scale, startPos.Y.Offset + delta.Y
+            )
+        end
+    end)
+end
+
+local screenGui = createScreenGui()
+initializeToggleButton(screenGui)
+
+getgenv().Psalms.LockType = "Namecall"
+getgenv().Psalms.RESOLVER = "MoveDirection"
+
+
+
+local game_support = {
+    [2788229376] = { Remote = "MainEvent", Argument = "UpdateMousePosI2" },
+    [83185437445240] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [5602055394] = { Remote = "MAINEVENT", Argument = "MousePos" },
+    [17403265390] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [17403166075] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [18111448661] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [15186202290] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [11143225577] = { Remote = "MainEvent", Argument = "UpdateMousePos" },
+    [15763494605] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [125825216602676] = { Remote = "MAINEVENT", Argument = "MOUSE" },
+    [15166543806] = { Remote = "MAINEVENT", Argument = "MoonUpdateMousePos" },
+    [17897702920] = { Remote = "MainEvent", Argument = "UpdateMousePos" },
+    [16033173781] = { Remote = "MainEvent", Argument = "UpdateMousePosI2" },
+    [7213786345] = { Remote = "MainEvent", Argument = "UpdateMousePosI2" },
+    [9825515356] = { Remote = "MainEvent", Argument = "MousePosUpdate" },
+    [16859411452] = { Remote = "MainEvent", Argument = "UpdateMousePos" },
+    [117734153242642] = { Remote = "MainEvent", Argument = "UpdateMousePos" },
+    [14277620939] = { Remote = "MainEvent", Argument = "UpdateMousePos" },
+    [17344804827] = { Remote = "MainEvent", Argument = "UpdateMousePos" }
+}
+
+
+
+
+    local Sigmaballs = Instance.new("ScreenGui")
+    Sigmaballs.Name = "Sigmaballs"
+    Sigmaballs.Parent = game.CoreGui
+    Sigmaballs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Sigmaballs.ResetOnSpawn = false
+
+    local ImageButton = Instance.new("ImageButton")
+    ImageButton.Name = "ImageButton"
+    ImageButton.Parent = Sigmaballs
+    ImageButton.Active = true
+    ImageButton.Draggable = true
+    ImageButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    ImageButton.BackgroundTransparency = 0.350
+    ImageButton.Size = UDim2.new(0, 90, 0, 90)
+    ImageButton.Image = "rbxassetid://110644549676949"
+    ImageButton.Position = UDim2.new(0.5, -25, 0.5, -25)
+    ImageButton.Visible = false
+    ImageButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
+    UserInputService.TouchStarted:Connect(function(input, gameProcessed)
+	if not gameProcessed then
+		ImageButton.Visible = true
+	end
+    end)
+
+
+    local Ui2corner = Instance.new("UICorner")
+    Ui2corner.CornerRadius = UDim.new(0.2, 0)
+    Ui2corner.Parent = ImageButton
+
+
+local player = game.Players.LocalPlayer
+local Plr = nil
+local enabled = false
+
+
+local FOV43 = Drawing.new("Circle")
+FOV43.Transparency = 0.5
+FOV43.Thickness = 2
+FOV43.Color = Color3.new(1, 0, 0)
+FOV43.Filled = false
+FOV43.Radius = 250
+FOV43.Position = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
+FOV43.Visible = false
+
+function SigmaOhioPlayer()
+    local mouse = player:GetMouse()
+    local closestPlayer
+    local shortestDistance = math.huge
+    local CC = game:GetService("Workspace").CurrentCamera
+    local screenCenter = Vector2.new(CC.ViewportSize.X / 2, CC.ViewportSize.Y / 2)
+    local fovRadius = FOV43.Radius
+    local viewportSize = CC.ViewportSize
+
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v ~= player and v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") then
+            local pos, onScreen = CC:WorldToViewportPoint(v.Character.PrimaryPart.Position)
+            
+            if onScreen and pos.X > 0 and pos.Y > 0 and pos.X < viewportSize.X and pos.Y < viewportSize.Y then
+                local magnitude = (Vector2.new(pos.X, pos.Y) - screenCenter).magnitude
+                if magnitude < fovRadius and magnitude < shortestDistance then
+                    closestPlayer = v
+                    shortestDistance = magnitude
+                end
+            end
+        end
+    end
+    return closestPlayer
+end
+
+function createTracer(localPlayer, targetPlayer)
+    if localPlayer and localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") and
+       targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+
+        local tracerAttachment1 = Instance.new("Attachment", localPlayer.Character.HumanoidRootPart)
+        local tracerAttachment2 = Instance.new("Attachment", targetPlayer.Character.HumanoidRootPart)
+
+        local tracerBeam = Instance.new("Beam")
+        tracerBeam.Attachment0 = tracerAttachment1
+        tracerBeam.Attachment1 = tracerAttachment2
+        tracerBeam.Color = ColorSequence.new(Color3.fromRGB(153, 0, 153))
+        tracerBeam.Width0 = 0.080
+        tracerBeam.Width1 = 0.080
+        tracerBeam.Parent = localPlayer.Character.HumanoidRootPart
+
+        tracernigger = tracerBeam  
+
+        targetPlayer.CharacterAdded:Connect(function(newCharacter)
+            if tracernigger then
+                tracernigger:Destroy()  
+                tracernigger = nil
+            end
+
+            newCharacter:WaitForChild("HumanoidRootPart")
+            tracerAttachment2.Parent = newCharacter.HumanoidRootPart
+            tracernigger = tracerBeam  
+        end)
+    end
+end
+
+function destroyTracer()
+    if tracernigger then
+        tracernigger:Destroy()
+        tracernigger = nil
+    end
+end
+
+
+
+
+function LookAtPlayer(Target)
+    local localChar = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+    local localHumanoidRootPart = localChar:FindFirstChild("HumanoidRootPart")
+    local humanoid = localChar:FindFirstChild("Humanoid")
+
+    if not localHumanoidRootPart or not humanoid then return end
+
+    if getgenv().Psalms and getgenv().Psalms.LookAt then
+        if Target and Target.Character then
+            local targetHRP = Target.Character:FindFirstChild("HumanoidRootPart")
+            if targetHRP then
+                local dir = Vector3.new(
+                    targetHRP.Position.X - localHumanoidRootPart.Position.X,
+                    0,
+                    targetHRP.Position.Z - localHumanoidRootPart.Position.Z
+                )
+                local horizontalDirection = dir.Magnitude > 0 and dir.Unit or Vector3.new(0,0,1)
+
+                localHumanoidRootPart.CFrame = CFrame.new(localHumanoidRootPart.Position, localHumanoidRootPart.Position + horizontalDirection)
+                humanoid.AutoRotate = false
+                return
+            end
+        end
+    end
+
+    -- Reset AutoRotate if no target or LookAt disabled
+    humanoid.AutoRotate = true
+end
+
+local function toggleLock()
+    if enabled then
+        ImageButton.Image = "rbxassetid://74470186884203"
+        enabled = false
+        Plr = nil
+        destroyTracer()  
+
+        Library2:Notify('Lock Disabled')
+    else
+        Plr = SigmaOhioPlayer()
+        if Plr then
+            enabled = true
+            if getgenv().Psalms.TracerEnabled then
+            createTracer(game.Players.LocalPlayer, Plr)  
+        end
+            
+            ImageButton.Image = "rbxassetid://110644549676949"
+Library2:Notify("Target Locked: " .. tostring(Plr.Character.Humanoid.DisplayName)
+            
+            )
+        end
+    end
+end
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local RunService = game:GetService("RunService")
+
+-- make sure Camera is the actual camera
+Camera = Camera or workspace.CurrentCamera
+
+RunService.RenderStepped:Connect(function()
+    if Plr and getgenv().Psalms.View then
+        if Plr.Character and Plr.Character:FindFirstChild("Humanoid") then
+            Camera.CameraSubject = Plr.Character.Humanoid
+        end
+    else
+        if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+            Camera.CameraSubject = LocalPlayer.Character.Humanoid
+        end
+    end
+end)
+ImageButton.MouseButton1Click:Connect(toggleLock)
+
+UserInputService.InputBegan:Connect(function(input, processed)
+    if not processed and input.KeyCode == Enum.KeyCode.DPadDown then
+        toggleLock()
+    end
+end)
+
+
+UserInputService.InputBegan:Connect(function(input, processed)
+	if not processed and input.KeyCode == Enum.KeyCode.C then
+		toggleLock()
+	end
+end)
+
+local function getRemoteInfo()
+    local placeId = game.PlaceId
+    return game_support[placeId] or { Remote = "MainEvent", Argument = "UpdateMousePos" }
+end
+
+local Step = {0.1, 0.1, 0.1}
+local Measurement = {1, 1, 1}
+local Noise = {0.001, 0.001, 0.001}
+local Process = {0.05, 0.05, 0.05, 0.1, 0.1, 0.1}
+local Transition = {1, 1, 1, 1, 1, 1}
+local Error = {1, 1, 1, 1, 1, 1}
+
+local State = {
+    {0},
+    {0},
+    {0},
+    {0},
+    {0},
+    {0}
+}
+
+local A = {
+    {Transition[1], 0, 0, Step[1], 0, 0},
+    {0, Transition[2], 0, 0, Step[2], 0},
+    {0, 0, Transition[3], 0, 0, Step[3]},
+    {0, 0, 0, Transition[4], 0, 0},
+    {0, 0, 0, 0, Transition[5], 0},
+    {0, 0, 0, 0, 0, Transition[6]}
+}
+
+local Q = {
+    {Process[1], 0, 0, 0, 0, 0},
+    {0, Process[2], 0, 0, 0, 0},
+    {0, 0, Process[3], 0, 0, 0},
+    {0, 0, 0, Process[4], 0, 0},
+    {0, 0, 0, 0, Process[5], 0},
+    {0, 0, 0, 0, 0, Process[6]}
+}
+
+local H = {
+    {Measurement[1], 0, 0, 0, 0, 0},
+    {0, Measurement[2], 0, 0, 0, 0},
+    {0, 0, Measurement[3], 0, 0, 0}
+}
+
+local R = {
+    {Noise[1], 0, 0},
+    {0, Noise[2], 0},
+    {0, 0, Noise[3]}
+}
+
+local P = {
+    {Error[1], 0, 0, 0, 0, 0},
+    {0, Error[2], 0, 0, 0, 0},
+    {0, 0, Error[3], 0, 0, 0},
+    {0, 0, 0, Error[4], 0, 0},
+    {0, 0, 0, 0, Error[5], 0},
+    {0, 0, 0, 0, 0, Error[6]}
+}
+
+local function MatrixMultiply(A, B)
+    local Result = {}
+    for i = 1, #A do
+        Result[i] = {}
+        for j = 1, #B[1] do
+            Result[i][j] = 0
+            for k = 1, #A[1] do
+                Result[i][j] = Result[i][j] + A[i][k] * B[k][j]
+            end
+        end
+    end
+    return Result
+end
+
+local function MatrixAdd(A, B)
+    local Result = {}
+    for i = 1, #A do
+        Result[i] = {}
+        for j = 1, #A[1] do
+            Result[i][j] = A[i][j] + B[i][j]
+        end
+    end
+    return Result
+end
+
+local function MatrixSubtract(A, B)
+    local Result = {}
+    for i = 1, #A do
+        Result[i] = {}
+        for j = 1, #A[1] do
+            Result[i][j] = A[i][j] - B[i][j]
+        end
+    end
+    return Result
+end
+
+local function MatrixTranspose(A)
+    local Result = {}
+    for i = 1, #A[1] do
+        Result[i] = {}
+        for j = 1, #A do
+            Result[i][j] = A[j][i]
+        end
+    end
+    return Result
+end
+
+local function IdentityMatrix(Size)
+    local I = {}
+    for i = 1, Size do
+        I[i] = {}
+        for j = 1, Size do
+            I[i][j] = (i == j) and 1 or 0
+        end
+    end
+    return I
+end
+
+local function MatrixInverse(A)
+    local Det = A[1][1] * (A[2][2] * A[3][3] - A[3][2] * A[2][3]) -
+        A[1][2] * (A[2][1] * A[3][3] - A[3][1] * A[2][3]) +
+        A[1][3] * (A[2][1] * A[3][2] - A[3][1] * A[2][2])
+    local InvDet = 1 / Det
+
+    local Inverse = {
+        {
+            (A[2][2] * A[3][3] - A[3][2] * A[2][3]) * InvDet,
+            (A[1][3] * A[3][2] - A[1][2] * A[3][3]) * InvDet,
+            (A[1][2] * A[2][3] - A[1][3] * A[2][2]) * InvDet
+        },
+        {
+            (A[2][3] * A[3][1] - A[2][1] * A[3][3]) * InvDet,
+            (A[1][1] * A[3][3] - A[1][3] * A[3][1]) * InvDet,
+            (A[2][1] * A[1][3] - A[1][1] * A[2][3]) * InvDet
+        },
+        {
+            (A[2][1] * A[3][2] - A[3][1] * A[2][2]) * InvDet,
+            (A[3][1] * A[1][2] - A[1][1] * A[3][2]) * InvDet,
+            (A[1][1] * A[2][2] - A[2][1] * A[1][2]) * InvDet
+        }
+    }
+
+    return Inverse
+end
+
+local function ApplyKalmanFilter(CurrentPosition)
+    local MeasurementMatrix = {
+        {CurrentPosition.X},
+        {CurrentPosition.Y},
+        {CurrentPosition.Z}
+    }
+
+    local AdaptiveQ = MatrixAdd(Q, MatrixMultiply(MatrixTranspose(Q), Q))
+    local AdaptiveR = MatrixAdd(R, MatrixMultiply(MatrixTranspose(R), R))
+
+    local PredictedState = MatrixMultiply(A, State)
+    local PredictedCovariance = MatrixAdd(MatrixMultiply(A, MatrixMultiply(P, MatrixTranspose(A))), AdaptiveQ)
+
+    local S = MatrixAdd(MatrixMultiply(H, MatrixMultiply(PredictedCovariance, MatrixTranspose(H))), AdaptiveR)
+    local K = MatrixMultiply(PredictedCovariance, MatrixMultiply(MatrixTranspose(H), MatrixInverse(S)))
+
+    local Y = MatrixSubtract(MeasurementMatrix, MatrixMultiply(H, PredictedState))
+    local StateUpdate = MatrixMultiply(K, Y)
+    State = MatrixAdd(PredictedState, StateUpdate)
+
+    local I = IdentityMatrix(6)
+    P = MatrixMultiply(MatrixSubtract(I, MatrixMultiply(K, H)), PredictedCovariance)
+
+    return Vector3.new(State[4][1] * 11.65, State[5][1] * 10.45, State[6][1] * 11.65)
+end
+
+local function ArtificialVelocity(Target)
+    local CurrentPosition = Target.Position
+    local EstimatedVelocity = ApplyKalmanFilter(CurrentPosition)
+
+    return EstimatedVelocity
+end
+
+local remoteInfo = getRemoteInfo()
+local mt = getrawmetatable(game)
+local old = mt.__namecall
+setreadonly(mt, false)
+
+mt.__namecall = newcclosure(function(...)
+    local args = {...}
+    local method = getnamecallmethod()
+
+    if getgenv().Psalms.Enabled and getgenv().Psalms.LockType == "Namecall" then
+        if Plr and Plr.Character and method == "FireServer" and (args[2] == remoteInfo.Argument) then
+            local selectedPart = getgenv().Psalms.SelectedPart
+            local targetPart = Plr.Character[selectedPart]
+
+            if targetPart then
+                -- Simplified: just use the part's velocity
+                local velocity = targetPart.Velocity
+                local prediction = getgenv().Psalms.HorizontalPrediction or 0
+
+                -- Position + velocity * prediction
+                args[3] = targetPart.Position + velocity * prediction
+
+                return old(unpack(args))
+            end
+        end
+    end
+
+    return old(...)
+end)
+
+setreadonly(mt, true)
+
+-- Function to get predicted position for the selected part
+local function GetPredictedPosition()
+    if not (Plr and Plr.Character and getgenv().Psalms.SelectedPart) then 
+        return nil 
+    end
+
+    local targetPart = Plr.Character[getgenv().Psalms.SelectedPart]
+    if not targetPart then 
+        return nil 
+    end
+
+    -- Always just use velocity
+    local velocity = targetPart.Velocity
+    local prediction = getgenv().Psalms.HorizontalPrediction or 0
+
+    -- Position + velocity * prediction
+    local predictedPos = targetPart.Position + velocity * prediction
+
+    return predictedPos
+end
+
+if game.PlaceId == 9825515356 then
+    local LocalFramework = LocalPlayer.PlayerGui:WaitForChild("Framework")
+    local FrameworkEnvironment
+
+    if LocalFramework then
+        FrameworkEnvironment = getsenv(LocalFramework)
+    end
+
+    RunService.PostSimulation:Connect(function(DeltaTime)
+        if getgenv().Psalms.Enabled and Psalms.LockType == "Index" and FrameworkEnvironment and Plr then
+            FrameworkEnvironment._G.MOUSE_POSITION = GetPredictedPosition()
+        end
+    end)
+else
+    local Hooks = {}
+    local mouse = game.Players.LocalPlayer:GetMouse()
+        Hooks[1] = hookmetamethod(mouse, "__index", newcclosure(function(self, index)
+            if index == "Hit" and getgenv().Psalms.Enabled and getgenv().Psalms.LockType == "Index" and Plr and Plr.Character then
+                local TargetFuturePosition = GetPredictedPosition()
+                if TargetFuturePosition then
+                    return CFrame.new(TargetFuturePosition)
+                end
+            end
+            return Hooks[1](self, index)
+        end))
+    end
+
+local Stas = game:GetService("Stats")
+
+local RunService = game:GetService("RunService")
+
+
+local Blatant = {
+    {0,   0.124686},
+    {10,  0.13899},
+    {20,  0.140029},
+    {30,  0.144169},
+    {40,  0.131604},
+    {50,  0.143997},
+    {60,  0.123318},
+    {70,  0.12533},
+    {80,  0.124508},
+    {90,  0.114554},
+    {100, 0.152575},
+    {105, 0.144767},
+    {110, 0.122772},
+    {125, 0.140926},
+    {130, 0.110953},
+    {135, 0.149463},
+    {140, 0.111542},
+    {145, 0.11287},
+    {150, 0.122935},
+    {155, 0.147147},
+    {160, 0.136172},
+    {165, 0.122091},
+    {170, 0.134463},
+    {175, 0.132285},
+    {180, 0.119918},
+    {185, 0.16823},
+    {190, 0.18659},
+    {205, 0.17782},
+    {215, 0.16937},
+    {225, 0.176332},
+}
+
+local predictionTable = {
+    {0,   0.124686},
+    {10,  0.13899},
+    {20,  0.140029},
+    {30,  0.144169},
+    {40,  0.131604},
+    {50,  0.143997},
+    {60,  0.123318},
+    {70,  0.12533},
+    {80,  0.124508},
+    {90,  0.114554},
+    {100, 0.152575},
+    {105, 0.144767},
+    {110, 0.122772},
+    {125, 0.140926},
+    {130, 0.110953},
+    {135, 0.149463},
+    {140, 0.111542},
+    {145, 0.11287},
+    {150, 0.122935},
+    {155, 0.147147},
+    {160, 0.136172},
+    {165, 0.122091},
+    {170, 0.134463},
+    {175, 0.132285},
+    {180, 0.119918},
+    {185, 0.16823},
+    {190, 0.18659},
+    {205, 0.17782},
+    {215, 0.16937},
+    {225, 0.176332},
+}
+
+local function calculateAdvancePrediction(target, cameraPosition, pingBase)
+    local character = Plr.Character and Plr.Character.Parent
+    if character then
+        local GoodPartTheCom = character:FindFirstChild("HumanoidRootPart")
+        if GoodPartTheCom then
+            local Velop = GoodPartTheCom.Velocity
+            local distanc11 = (cameraPosition - GoodPartTheCom.Position).Magnitude
+            local advancePrediction = pingBase + (distanc11 / 1000) * (Velop.Magnitude / 50)
+            return advancePrediction
+        end
+    end
+    return pingBase
+end
+
+local function updatePredictionValue()
+    if getgenv().Psalms.AutoPrediction then
+        local pingValue = Stas.Network.ServerStatsItem["Data Ping"]:GetValueString()
+        local split = string.split(pingValue, '(')
+        local ping = tonumber(split[1])
+
+        if ping then
+            if getgenv().Psalms.AutoPredMode == "PingBased" then
+                for i = 1, #predictionTable do
+                    if ping < predictionTable[i][1] then
+                        local value = predictionTable[i][2]
+                        getgenv().Psalms.HorizontalPrediction = value
+                        getgenv().Psalms.VerticalPrediction = value
+                        break
+                    end
+                end
+            elseif getgenv().Psalms.AutoPredMode == "Calculation" then
+                local calculatedValue = 0.1 + (ping / 1000) * 0.32
+                getgenv().Psalms.HorizontalPrediction = calculatedValue
+                getgenv().Psalms.VerticalPrediction = calculatedValue
+            elseif getgenv().Psalms.AutoPredMode == "AdvanceCalculation" then
+                for i = 1, #predictionTable do
+                    if ping < predictionTable[i][1] then
+                        local pingBase = predictionTable[i][2]
+                        local advancePredictionValue = calculateAdvancePrediction(Plr, workspace.CurrentCamera.CFrame.Position, pingBase)
+                        getgenv().Psalms.HorizontalPrediction = advancePredictionValue
+                        getgenv().Psalms.VerticalPrediction = advancePredictionValue
+                        break
+                    end
+                end
+            elseif getgenv().Psalms.AutoPredMode == "Blatant" then
+                for i = 1, #Blatant do
+                    if ping < Blatant[i][1] then
+                        local value = Blatant[i][2]
+                        getgenv().Psalms.HorizontalPrediction = value
+                        getgenv().Psalms.VerticalPrediction = value
+                        break
+                    end
+                end
+            end
+        end
+    end
+end
+
+
+RunService.Heartbeat:Connect(function()
+    if getgenv().Psalms.Flick and Plr and Plr.Character then
+        local playerHumanoid = Plr.Character:FindFirstChild("Humanoid")
+        if playerHumanoid and playerHumanoid.Health > 0 then
+       
+            local targetPart = Plr.Character:FindFirstChild("UpperTorso") or Plr.Character:FindFirstChild("Head")
+            if targetPart and playerHumanoid.FloorMaterial == Enum.Material.Air then
+                local camera = workspace.CurrentCamera
+                local targetPosition = targetPart.Position + targetPart.Velocity * getgenv().Psalms.VerticalPrediction
+                camera.CFrame = CFrame.new(camera.CFrame.Position, targetPosition)
+            end
+        end
+    end
+end)
+
+
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+
+
+-- Function to set up the character after spawn/respawn
+local function SetupCharacter(Char)
+    -- Heartbeat connection for grenade handle movement
+    RunService.Heartbeat:Connect(function()
+        if GrenadeTP and Plr and Char and workspace:FindFirstChild("Ignored") then
+            local handle = workspace.Ignored:FindFirstChild("Handle")
+            if handle then
+                handle.Position = Char[getgenv().Patz.SelectedPart].Position 
+                    + (Char[getgenv().Patz.SelectedPart].Velocity * getgenv().Patz.HorizontalPrediction)
+            end
+        end
+    end)
+end
+
+-- Run setup for the current character if it exists
+if lp.Character then
+    SetupCharacter(lp.Character)
+end
+
+-- Re-run setup every time player respawns
+lp.CharacterAdded:Connect(function(Char)
+    SetupCharacter(Char)
+end)
+
+-- Handle rocket/grenade child added logic
+if workspace:FindFirstChild("Ignored") then
+    workspace.Ignored.ChildAdded:Connect(function(object)
+        if RocketTP and Plr and Plr.Character and (object.Name == "Model" or object.Name == "GrenadeLauncherAmmo") then
+            local SkibidiGrenadeLauncher = object.Name == "GrenadeLauncherAmmo"
+            local part = SkibidiGrenadeLauncher and object:WaitForChild("Main") or object:WaitForChild("Launcher")
+
+            part.CFrame = CFrame.new(1, 1, 1)
+
+            if not SkibidiGrenadeLauncher then
+                if part:FindFirstChild("BodyVelocity") then
+                    part.BodyVelocity:Destroy()
+                end
+                if part:FindFirstChild("TouchInterest") then
+                    part.TouchInterest:Destroy()
+                end
+            end
+
+            local connection
+            connection = RunService.PostSimulation:Connect(function()
+                if Plr and Plr.Character then
+                    part.CFrame = Plr.Character.HumanoidRootPart.CFrame
+                    part.Velocity = Vector3.new(0, 0.001, 0)
+                end
+            end)
+
+            object.Destroying:Connect(function()
+                connection:Disconnect()
+            end)
+        end
+    end)
+end
+
+RunService.Heartbeat:Connect(function()
+    if getgenv().Psalms.Camera and Plr and Plr.Character and getgenv().Psalms.SelectedPart then
+        local camera = Workspace.CurrentCamera
+        local selectedPart = getgenv().Psalms.SelectedPart
+        local targetPart = Plr.Character[selectedPart]
+
+        if targetPart then
+            local velocity
+            if getgenv().Psalms.ResolverEnabled then
+                if getgenv().Psalms.RESOLVER == "MoveDirection" then
+                    velocity = Plr.Character.Humanoid.MoveDirection * Plr.Character.Humanoid.WalkSpeed
+                elseif getgenv().Psalms.RESOLVER == "LookVector" then
+                    velocity = targetPart.CFrame.LookVector * getgenv().Psalms.CamX * 1.0
+                else
+                    velocity = targetPart.Velocity
+                end
+            else
+                velocity = targetPart.Velocity
+            end
+
+            local jumpOffset = getgenv().Psalms.jumpoffset or 0
+            local fallOffset = getgenv().Psalms.FallOffset or 0
+
+            local verticalVelocity = velocity.Y
+            local appliedVerticalOffset = 0
+
+            if verticalVelocity > 0 then
+                appliedVerticalOffset = jumpOffset
+            elseif verticalVelocity < 0 then
+                appliedVerticalOffset = -fallOffset
+            end
+
+            local horizontalPrediction = getgenv().Psalms.CamX
+            local verticalPrediction = getgenv().Psalms.CamY
+
+            local targetPosition = Vector3.new(
+                targetPart.Position.X + (velocity.X * horizontalPrediction),
+                targetPart.Position.Y + (velocity.Y * verticalPrediction) + appliedVerticalOffset,
+                targetPart.Position.Z + (velocity.Z * horizontalPrediction)
+            )
+
+            local smoothness = getgenv().Psalms.smoothness or 0.1 
+            camera.CFrame = camera.CFrame:Lerp(CFrame.new(camera.CFrame.Position, targetPosition), smoothness)
+        end
+    end
+end)
+
+local players = game:GetService("Players")
+local client = players.LocalPlayer
+
+local function AutoShoot()
+    if Plr then
+        local character = client.Character
+        if character then
+            local tool = character:FindFirstChildOfClass("Tool")
+            if tool and tool:IsA("Tool") then
+                tool:Activate()
+            end
+        else
+            warn("Character not found for client")
+        end
+    else
+        warn("No target (Plr) found")
+    end
+end
+
+local Shot2ing = false
+
+local function ApplyAntiGround()
+    local character = Plr.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+    
+    if humanoidRootPart then
+        local velocity = humanoidRootPart.Velocity
+        local SigmaAir = humanoidRootPart.Position.Y > 2
+
+        if not SigmaAir and velocity.Y < -3 then
+            if getgenv().Psalms.NoGroundShot then
+                humanoidRootPart.Velocity = Vector3.new(velocity.X, 0, velocity.Z)
+            end
+        else
+            if not getgenv().Psalms.NoGroundShot then
+                humanoidRootPart.Velocity = Vector3.new(velocity.X, velocity.Y, velocity.Z)
+            end
+        end
+    end
+end
+
+local targetSigm99928 = getgenv().Psalms.ShootDelay 
+local targetSigmaPOBALLs = nil
+
+local function checkTarget()
+    if Plr and Plr.Character then
+        local humanoid = Plr.Character:FindFirstChildOfClass("Humanoid")
+        local humanoidRootPart = Plr.Character:FindFirstChild("HumanoidRootPart")
+        
+        if humanoid and humanoidRootPart then
+            local SigmaAir = humanoid:GetState() == Enum.HumanoidStateType.Freefall or humanoidRootPart.Velocity.Y > 2
+            
+         
+            if SigmaAir and getgenv().Psalms.AutoAir then
+                if not targetSigmaPOBALLs then
+                    
+                    targetSigmaPOBALLs = tick()
+                else
+                   
+                    local airDuration = tick() - targetSigmaPOBALLs
+                    if airDuration >= targetSigm99928 then
+                        if not Shot2ing then
+                            Shot2ing = true
+                            while Plr and Plr.Character and (SigmaAir) do
+                                AutoShoot()
+                                wait(0.001)
+                               
+                                SigmaAir = humanoid:GetState() == Enum.HumanoidStateType.Freefall or humanoidRootPart.Velocity.Y > 2
+                                
+                                
+                                if not SigmaAir then
+                                    Shot2ing = false
+                                    targetSigmaPOBALLs = nil -- Reset the start time
+                                    break
+                                end
+                            end
+                            Shot2ing = false
+                        end
+                    end
+                end
+            else
+                
+                targetSigmaPOBALLs = nil
+                Shot2ing = false
+            end
+        end
+    end
+end
+
+
+
+
+
+-- Hit sounds
+local function PlayHitSound()
+    if SettingsBlah.HitSounds and hitsounds[SettingsBlah.HitSound] then
+        local sound = Instance.new("Sound")
+        sound.SoundId = hitsounds[SettingsBlah.HitSound]
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        sound.Ended:Connect(function() sound:Destroy() end)
+    end
+end
+
+-- HitChams
+local function HitChams(player)
+    if not SettingsBlah.HitChams or not player.Character then return end
+    for _, bodyPart in pairs(player.Character:GetChildren()) do
+        if bodyPart:IsA("BasePart") and bodyPart.Name ~= "HumanoidRootPart" then
+            local partClone = Instance.new("Part")
+            partClone.Name = bodyPart.Name .. "_Clone"
+            partClone.Parent = HitChamsFolder
+            partClone.Material = SettingsBlah.HitChamsMaterial
+            partClone.Color = SettingsBlah.HitChamsColor
+            partClone.Transparency = 0
+            partClone.Anchored = true
+            partClone.Size = bodyPart.Size
+            partClone.CFrame = bodyPart.CFrame
+            task.delay(SettingsBlah.HitChamsDuration, function() partClone:Destroy() end)
+        end
+    end
+end
+
+-- Settings
+
+
+local lp = game.Players.LocalPlayer
+local rs = game:GetService("RunService")
+local plrs = game:GetService("Players")
+local cam = workspace.CurrentCamera
+
+
+
+
+local function upd()
+ if getgenv().Psalms.Orbit == true then
+    if Plr and Plr.Character and Plr.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = lp.Character and lp.Character:FindFirstChild("HumanoidRootPart")
+        if not hrp then return end
+
+        local t = tick() * getgenv().a.o.s
+        local ox = math.cos(t) * getgenv().a.o.r
+        local oz = math.sin(t) * getgenv().a.o.r
+        local oy = math.sin(t) * getgenv().a.o.h
+
+        hrp.CFrame = Plr.Character.HumanoidRootPart.CFrame * CFrame.new(ox, oy, oz)
+        hrp.AssemblyLinearVelocity = Vector3.new(0,0,0)
+      end
+    end
+end
+
+
+
+rs.Heartbeat:Connect(upd)
+
+local targetHealth = nil
+local TweenService = game:GetService("TweenService")
+local DamageFolder = workspace:FindFirstChild("DamageNumbers") or Instance.new("Folder", workspace)
+DamageFolder.Name = "DamageNumbers"
+
+-- Function to create floating damage text
+local function createDamageText(amount, position, color)
+    local billboard = Instance.new("BillboardGui")
+    billboard.Size = UDim2.new(0, 100, 0, 50)
+    billboard.Adornee = nil
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Parent = DamageFolder
+    billboard.MaxDistance = 100
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = tostring(amount)
+    textLabel.Font = Enum.Font.FredokaOne
+    textLabel.TextScaled = true
+    textLabel.TextColor3 = color
+    textLabel.Parent = billboard
+
+    -- Position it at the hit spot
+    local part = Instance.new("Part")
+    part.Anchored = true
+    part.CanCollide = false
+    part.Transparency = 1
+    part.Size = Vector3.new(1,1,1)
+    part.Position = position
+    part.Parent = DamageFolder
+    billboard.Adornee = part
+
+    -- Tween upwards + fade
+    local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    TweenService:Create(part, tweenInfo, {Position = position + Vector3.new(0,3,0)}):Play()
+    TweenService:Create(textLabel, tweenInfo, {TextTransparency = 1}):Play()
+
+    game:GetService("Debris"):AddItem(billboard, 1.2)
+    game:GetService("Debris"):AddItem(part, 1.2)
+end
+
+-- Your update function
+local function updateTargetHealth()
+    if Plr and Plr.Character then
+        local humanoid = Plr.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            local currentHealth = humanoid.Health
+
+            if targetHealth == nil then
+                targetHealth = currentHealth
+            end
+
+            if currentHealth < targetHealth then
+                local damageDealt = targetHealth - currentHealth
+                local selectedPart = tostring(getgenv().Psalms.SelectedPart)
+
+                -- Hit effects
+                HitEffectModule.Functions.Effect(Plr.Character, SettingsBlah.HitEffectColor)
+                PlayHitSound()
+                HitChams(Plr)
+
+                -- Show floating damage text at the characterâ€™s head
+                local head = Plr.Character:FindFirstChild("Head")
+                if head then
+                    if SettingsBlah.DmgCnt then createDamageText(damageDealt, head.Position, Color3.fromRGB(255, 255, 0))
+                  end
+                end
+            end
+
+            targetHealth = currentHealth
+        end
+    end
+end
+
+-- Run check every frame
+game:GetService("RunService").Heartbeat:Connect(updateTargetHealth)
+
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    LookAtPlayer(Plr)
+    checkTarget()
+    if Plr then
+        updatePredictionValue()
+        ApplyAntiGround()
+    end
+end)
+
+
+
+
+local Camera = workspace.CurrentCamera
+
+
+
+getgenv().Filled = false
+getgenv().FOVTransparency = 0.8
+getgenv().FOVThickness = 1
+getgenv().FOVColor = Color3.new(1, 1, 1)
+getgenv().ShowFOV = false
+getgenv().FOVSize = 25
+
+
+local FOV = Drawing.new("Circle")
+FOV.Transparency = getgenv().FOVTransparency
+FOV.Thickness = getgenv().FOVThickness
+FOV.Color = getgenv().FOVColor
+FOV.Filled = getgenv().Filled
+FOV.Radius = getgenv().FOVSize
+FOV.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+
+local function IsPlayerInFOV(player)
+    if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then
+        return false
+    end
+
+    local characterRootPart = player.Character.HumanoidRootPart
+    local screenPosition, onScreen = Camera:WorldToViewportPoint(characterRootPart.Position)
+    local centerScreenPosition = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+    local distance = (centerScreenPosition - Vector2.new(screenPosition.X, screenPosition.Y)).Magnitude
+
+    if onScreen and distance <= FOV.Radius then
+        local ray = Ray.new(Camera.CFrame.Position, (characterRootPart.Position - Camera.CFrame.Position).unit * 500)
+        local part, position = workspace:FindPartOnRay(ray, LocalPlayer.Character)
+        return not part or part:IsDescendantOf(player.Character)
+    end
+    return false
+end
+
+
+RunService.RenderStepped:Connect(function()
+    FOV.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+    FOV.Radius = getgenv().FOVSize
+    FOV.Visible = getgenv().ShowFOV
+targetSigm99928 = getgenv().Psalms.ShootDelay
+
+    if getgenv().Psalms.SilentAim then
+        local NiggerLocated = false
+
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer and IsPlayerInFOV(player) then
+                NiggerLocated = true
+                Plr = player
+                break
+            end
+        end
+
+        if not NiggerLocated then
+            Plr = nil
+        end
+    end
+end)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local cframe_to_offset = function(origin, target)
+    local actual_origin = origin * CFrame.new(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, -1, 0)
+    return actual_origin:ToObjectSpace(target):inverse()
+end
+
+bool_at_tp_tool = function(tool)
+    local old_grip = tool.Grip
+    if Plr and Plr.Character then
+        tool.Parent = LocalPlayer.Backpack
+        LocalPlayer.Character.RightHand.Anchored = false
+        tool.Grip = cframe_to_offset(LocalPlayer.Character.RightHand.CFrame, Plr.Character.HumanoidRootPart.CFrame)
+        LocalPlayer.Character.RightHand.Anchored = true
+        tool.Parent = LocalPlayer.Character
+        RunService.RenderStepped:Wait()
+        tool.Parent = LocalPlayer.Backpack
+        LocalPlayer.Character.RightHand.Anchored = false
+        tool.Grip = old_grip
+        tool.Parent = LocalPlayer.Character
+    end
+end
+
+local connection
+
+local tool_activated = function(character)
+    character.ChildAdded:Connect(function(child)
+        if Psalms.Tech.bool_at_tp then
+            if child:IsA("Tool") then
+                connection = child.Activated:Connect(function()
+                    bool_at_tp_tool(child)
+                end)
+            end
+        end
+    end)
+
+    character.ChildRemoved:Connect(function(child)
+        if child:IsA("Tool") then
+            if connection then
+                connection:Disconnect()
+            end
+        end
+    end)
+end
+
+LocalPlayer.CharacterAdded:Connect(function(new_character)
+    tool_activated(new_character)
+end)
+
+tool_activated(LocalPlayer.Character)
+
+
+
+
+
+-- Indicators table (dynamic)
+local Indicators = nil
+
+-- Function to create indicators
+local function CreateIndicators()
+    Indicators = {
+        Text = Drawing.new("Text"),
+        Circle = Drawing.new("Circle")
+    }
+
+    Indicators.Text.Visible = false
+    Indicators.Text.Size = 16
+    Indicators.Text.Center = true
+    Indicators.Text.Outline = true
+    Indicators.Text.Color = Library.Accent
+
+    Indicators.Circle.Visible = false
+    Indicators.Circle.Radius = 20
+    Indicators.Circle.Thickness = 2
+    Indicators.Circle.Filled = false
+    Indicators.Circle.Color = Library2.AccentColor
+end
+
+-- Function to destroy indicators
+local function DestroyIndicators()
+    if Indicators then
+        if Indicators.Text then Indicators.Text:Remove() end
+        if Indicators.Circle then Indicators.Circle:Remove() end
+        Indicators = nil
+    end
+end
+
+
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if not Settings.Main.Visuals.Indicator.Enabled then
+        if Indicators then DestroyIndicators() end
+        return
+    end
+
+    if not Plr or not Plr.Character then
+        DestroyIndicators()
+        return
+    end
+
+    -- Create indicators if missing
+    if not Indicators then
+        CreateIndicators(Settings.Main.Visuals.Indicator.Color)
+    end
+
+    local hitPart = Plr.Character:FindFirstChild(Settings.Main.TargetLock.HitPart.Part)
+    if not hitPart then
+        DestroyIndicators()
+        return
+    end
+
+    local Nadeko = Utils.WorldToScreen(hitPart.Position)
+    if not Nadeko.OnScreen then
+        Indicators.Text.Visible = false
+        Indicators.Circle.Visible = false
+        return
+    end
+
+    Indicators.Text.Visible = true
+    Indicators.Circle.Visible = true
+
+    Indicators.Text.Position = Nadeko.Position
+    Indicators.Circle.Position = Nadeko.Position
+
+    -- Build text content
+    local IndicatorText = "LOCKED: " .. Plr.Name .. "\n"
+
+    if table.find(Settings.Main.Visuals.Indicator.Misc, "Prediction") then
+        if getgenv().Psalms and getgenv().Psalms.Enabled then
+            IndicatorText = IndicatorText .. string.format(
+                "PREDICTION: H: %.3f, V: %.3f\n",
+                getgenv().Psalms.HorizontalPrediction,
+                getgenv().Psalms.VerticalPrediction
+            )
+        else
+            IndicatorText = IndicatorText .. "PREDICTION: N/A\n"
+        end
+    end
+
+    if table.find(Settings.Main.Visuals.Indicator.Misc, "Velocity") then
+        local vel = hitPart.Velocity.Magnitude
+        IndicatorText = IndicatorText .. string.format("VELOCITY: %.1f\n", vel)
+    end
+
+    Indicators.Text.Text = IndicatorText
+end)
+
+local Euphoria = ESP.Connections;
+local lplayer = Players.LocalPlayer;
+local camera = game.Workspace.CurrentCamera;
+local Cam = Workspace.CurrentCamera;
+local RotationAngle, Tick = -45, tick();
+
+-- Weapon Images
+local Weapon_Icons = {
+    ["Wooden Bow"] = "http://www.roblox.com/asset/?id=17677465400",
+    ["Crossbow"] = "http://www.roblox.com/asset/?id=17677473017",
+    ["Salvaged SMG"] = "http://www.roblox.com/asset/?id=17677463033",
+    ["Salvaged AK47"] = "http://www.roblox.com/asset/?id=17677455113",
+    ["Salvaged AK74u"] = "http://www.roblox.com/asset/?id=17677442346",
+    ["Salvaged M14"] = "http://www.roblox.com/asset/?id=17677444642",
+    ["Salvaged Python"] = "http://www.roblox.com/asset/?id=17677451737",
+    ["Military PKM"] = "http://www.roblox.com/asset/?id=17677449448",
+    ["Military M4A1"] = "http://www.roblox.com/asset/?id=17677479536",
+    ["Bruno's M4A1"] = "http://www.roblox.com/asset/?id=17677471185",
+    ["Military Barrett"] = "http://www.roblox.com/asset/?id=17677482998",
+    ["Salvaged Skorpion"] = "http://www.roblox.com/asset/?id=17677459658",
+    ["Salvaged Pump Action"] = "http://www.roblox.com/asset/?id=17677457186",
+    ["Military AA12"] = "http://www.roblox.com/asset/?id=17677475227",
+    ["Salvaged Break Action"] = "http://www.roblox.com/asset/?id=17677468751",
+    ["Salvaged Pipe Rifle"] = "http://www.roblox.com/asset/?id=17677468751",
+    ["Salvaged P250"] = "http://www.roblox.com/asset/?id=17677447257",
+    ["Nail Gun"] = "http://www.roblox.com/asset/?id=17677484756"
+};
+
+-- Functions
+local Functions = {}
+do
+    function Functions:Create(Class, Properties)
+        local _Instance = typeof(Class) == 'string' and Instance.new(Class) or Class
+        for Property, Value in pairs(Properties) do
+            _Instance[Property] = Value
+        end
+        return _Instance;
+    end
+    --
+    function Functions:FadeOutOnDist(element, distance)
+        local transparency = math.max(0.1, 1 - (distance / ESP.MaxDistance))
+        if element:IsA("TextLabel") then
+            element.TextTransparency = 1 - transparency
+        elseif element:IsA("ImageLabel") then
+            element.ImageTransparency = 1 - transparency
+        elseif element:IsA("UIStroke") then
+            element.Transparency = 1 - transparency
+        elseif element:IsA("Frame") and (element == Healthbar or element == BehindHealthbar) then
+            element.BackgroundTransparency = 1 - transparency
+        elseif element:IsA("Frame") then
+            element.BackgroundTransparency = 1 - transparency
+        elseif element:IsA("Highlight") then
+            element.FillTransparency = 1 - transparency
+            element.OutlineTransparency = 1 - transparency
+        end;
+    end;  
+end;
+
+do -- Initalize
+    local ScreenGui = Functions:Create("ScreenGui", {
+        Parent = CoreGui,
+        Name = "ESPHolder",
+    });
+
+    local DupeCheck = function(plr)
+        if ScreenGui:FindFirstChild(plr.Name) then
+            ScreenGui[plr.Name]:Destroy()
+        end
+    end
+
+    local ESPFunc = function(plr)
+        coroutine.wrap(DupeCheck)(plr) -- Dupecheck
+        local Name = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, -11), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0), RichText = true})
+        local Distance = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, 11), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0), RichText = true})
+        local Weapon = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, 31), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0), RichText = true})
+        local Box = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = Color3.fromRGB(0, 0, 0), BackgroundTransparency = 0.75, BorderSizePixel = 0})
+        local Gradient1 = Functions:Create("UIGradient", {Parent = Box, Enabled = ESP.Drawing.Boxes.GradientFill, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Boxes.GradientFillRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Boxes.GradientFillRGB2)}})
+        local Outline = Functions:Create("UIStroke", {Parent = Box, Enabled = ESP.Drawing.Boxes.Gradient, Transparency = 0, Color = Color3.fromRGB(255, 255, 255), LineJoinMode = Enum.LineJoinMode.Miter})
+        local Gradient2 = Functions:Create("UIGradient", {Parent = Outline, Enabled = ESP.Drawing.Boxes.Gradient, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Boxes.GradientRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Boxes.GradientRGB2)}})
+        local Healthbar = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = Color3.fromRGB(255, 255, 255), BackgroundTransparency = 0})
+        local BehindHealthbar = Functions:Create("Frame", {Parent = ScreenGui, ZIndex = -1, BackgroundColor3 = Color3.fromRGB(0, 0, 0), BackgroundTransparency = 0})
+        local HealthbarGradient = Functions:Create("UIGradient", {Parent = Healthbar, Enabled = ESP.Drawing.Healthbar.Gradient, Rotation = -90, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Healthbar.GradientRGB1), ColorSequenceKeypoint.new(0.5, ESP.Drawing.Healthbar.GradientRGB2), ColorSequenceKeypoint.new(1, ESP.Drawing.Healthbar.GradientRGB3)}})
+        local HealthText = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, 31), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0)})
+        local Chams = Functions:Create("Highlight", {Parent = ScreenGui, FillTransparency = 1, OutlineTransparency = 0, OutlineColor = Color3.fromRGB(119, 120, 255), DepthMode = "AlwaysOnTop"})
+        local WeaponIcon = Functions:Create("ImageLabel", {Parent = ScreenGui, BackgroundTransparency = 1, BorderColor3 = Color3.fromRGB(0, 0, 0), BorderSizePixel = 0, Size = UDim2.new(0, 40, 0, 40)})
+        local Gradient3 = Functions:Create("UIGradient", {Parent = WeaponIcon, Rotation = -90, Enabled = ESP.Drawing.Weapons.Gradient, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Weapons.GradientRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Weapons.GradientRGB2)}})
+        local LeftTop = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local LeftSide = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local RightTop = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local RightSide = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local BottomSide = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local BottomDown = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local BottomRightSide = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local BottomRightDown = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
+        local Flag1 = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(1, 0, 0, 0), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0)})
+        local Flag2 = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(1, 0, 0, 0), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0)})
+        --local DroppedItems = Functions:Create("TextLabel", {Parent = ScreenGui, AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0)})
+        --
+        local Updater = function()
+            local Connection;
+            local function HideESP()
+                Box.Visible = false;
+                Name.Visible = false;
+                Distance.Visible = false;
+                Weapon.Visible = false;
+                Healthbar.Visible = false;
+                BehindHealthbar.Visible = false;
+                HealthText.Visible = false;
+                WeaponIcon.Visible = false;
+                LeftTop.Visible = false;
+                LeftSide.Visible = false;
+                BottomSide.Visible = false;
+                BottomDown.Visible = false;
+                RightTop.Visible = false;
+                RightSide.Visible = false;
+                BottomRightSide.Visible = false;
+                BottomRightDown.Visible = false;
+                Flag1.Visible = false;
+                Chams.Enabled = false;
+                Flag2.Visible = false;
+                if not plr then
+                    ScreenGui:Destroy();
+                    Connection:Disconnect();
+                end
+            end
+            --
+            Connection = Euphoria.RunService.RenderStepped:Connect(function()
+                if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                    local HRP = plr.Character.HumanoidRootPart
+                    local Humanoid = plr.Character:WaitForChild("Humanoid");
+                    local Pos, OnScreen = Cam:WorldToScreenPoint(HRP.Position)
+                    local Dist = (Cam.CFrame.Position - HRP.Position).Magnitude / 3.5714285714
+                    
+                    if OnScreen and Dist <= ESP.MaxDistance then
+                        local Size = HRP.Size.Y
+                        local scaleFactor = (Size * Cam.ViewportSize.Y) / (Pos.Z * 2)
+                        local w, h = 3 * scaleFactor, 4.5 * scaleFactor
+
+                        -- Fade-out effect --
+                        if ESP.FadeOut.OnDistance then
+                            Functions:FadeOutOnDist(Box, Dist)
+                            Functions:FadeOutOnDist(Outline, Dist)
+                            Functions:FadeOutOnDist(Name, Dist)
+                            Functions:FadeOutOnDist(Distance, Dist)
+                            Functions:FadeOutOnDist(Weapon, Dist)
+                            Functions:FadeOutOnDist(Healthbar, Dist)
+                            Functions:FadeOutOnDist(BehindHealthbar, Dist)
+                            Functions:FadeOutOnDist(HealthText, Dist)
+                            Functions:FadeOutOnDist(WeaponIcon, Dist)
+                            Functions:FadeOutOnDist(LeftTop, Dist)
+                            Functions:FadeOutOnDist(LeftSide, Dist)
+                            Functions:FadeOutOnDist(BottomSide, Dist)
+                            Functions:FadeOutOnDist(BottomDown, Dist)
+                            Functions:FadeOutOnDist(RightTop, Dist)
+                            Functions:FadeOutOnDist(RightSide, Dist)
+                            Functions:FadeOutOnDist(BottomRightSide, Dist)
+                            Functions:FadeOutOnDist(BottomRightDown, Dist)
+                            Functions:FadeOutOnDist(Chams, Dist)
+                            Functions:FadeOutOnDist(Flag1, Dist)
+                            Functions:FadeOutOnDist(Flag2, Dist)
+                        end
+
+                        -- Teamcheck
+                        if ESP.TeamCheck and plr ~= lplayer and ((lplayer.Team ~= plr.Team and plr.Team) or (not lplayer.Team and not plr.Team)) and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and plr.Character:FindFirstChild("Humanoid") then
+
+                            do -- Chams
+                                Chams.Adornee = plr.Character
+                                Chams.Enabled = ESP.Drawing.Chams.Enabled
+                                Chams.FillColor = ESP.Drawing.Chams.FillRGB
+                                Chams.OutlineColor = ESP.Drawing.Chams.OutlineRGB
+                                do -- Breathe
+                                    if ESP.Drawing.Chams.Thermal then
+                                        local breathe_effect = math.atan(math.sin(tick() * 2)) * 2 / math.pi
+                                        Chams.FillTransparency = ESP.Drawing.Chams.Fill_Transparency * breathe_effect * 0.01
+                                        Chams.OutlineTransparency = ESP.Drawing.Chams.Outline_Transparency * breathe_effect * 0.01
+                                    end
+                                end
+                                if ESP.Drawing.Chams.VisibleCheck then
+                                    Chams.DepthMode = "Occluded"
+                                else
+                                    Chams.DepthMode = "AlwaysOnTop"
+                                end
+                            end;
+
+                            do -- Corner Boxes
+                                LeftTop.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                LeftTop.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y - h / 2)
+                                LeftTop.Size = UDim2.new(0, w / 5, 0, 1)
+                                
+                                LeftSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                LeftSide.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y - h / 2)
+                                LeftSide.Size = UDim2.new(0, 1, 0, h / 5)
+                                
+                                BottomSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomSide.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y + h / 2)
+                                BottomSide.Size = UDim2.new(0, 1, 0, h / 5)
+                                BottomSide.AnchorPoint = Vector2.new(0, 5)
+                                
+                                BottomDown.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomDown.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y + h / 2)
+                                BottomDown.Size = UDim2.new(0, w / 5, 0, 1)
+                                BottomDown.AnchorPoint = Vector2.new(0, 1)
+                                
+                                RightTop.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                RightTop.Position = UDim2.new(0, Pos.X + w / 2, 0, Pos.Y - h / 2)
+                                RightTop.Size = UDim2.new(0, w / 5, 0, 1)
+                                RightTop.AnchorPoint = Vector2.new(1, 0)
+                                
+                                RightSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                RightSide.Position = UDim2.new(0, Pos.X + w / 2 - 1, 0, Pos.Y - h / 2)
+                                RightSide.Size = UDim2.new(0, 1, 0, h / 5)
+                                RightSide.AnchorPoint = Vector2.new(0, 0)
+                                
+                                BottomRightSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomRightSide.Position = UDim2.new(0, Pos.X + w / 2, 0, Pos.Y + h / 2)
+                                BottomRightSide.Size = UDim2.new(0, 1, 0, h / 5)
+                                BottomRightSide.AnchorPoint = Vector2.new(1, 1)
+                                
+                                BottomRightDown.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomRightDown.Position = UDim2.new(0, Pos.X + w / 2, 0, Pos.Y + h / 2)
+                                BottomRightDown.Size = UDim2.new(0, w / 5, 0, 1)
+                                BottomRightDown.AnchorPoint = Vector2.new(1, 1)                                                            
+                            end
+
+                            do -- Boxes
+                                Box.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y - h / 2)
+                                Box.Size = UDim2.new(0, w, 0, h)
+                                Box.Visible = ESP.Drawing.Boxes.Full.Enabled;
+
+                                -- Gradient
+                                if ESP.Drawing.Boxes.Filled.Enabled then
+                                    Box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                                    if ESP.Drawing.Boxes.GradientFill then
+                                        Box.BackgroundTransparency = ESP.Drawing.Boxes.Filled.Transparency;
+                                    else
+                                        Box.BackgroundTransparency = 1
+                                    end
+                                    Box.BorderSizePixel = 1
+                                else
+                                    Box.BackgroundTransparency = 1
+                                end
+                                -- Animation
+                                RotationAngle = RotationAngle + (tick() - Tick) * ESP.Drawing.Boxes.RotationSpeed * math.cos(math.pi / 4 * tick() - math.pi / 2)
+                                if ESP.Drawing.Boxes.Animate then
+                                    Gradient1.Rotation = RotationAngle
+                                    Gradient2.Rotation = RotationAngle
+                                else
+                                    Gradient1.Rotation = -45
+                                    Gradient2.Rotation = -45
+                                end
+                                Tick = tick()
+                            end
+
+                            -- Healthbar
+                            do  
+                                local health = Humanoid.Health / Humanoid.MaxHealth;
+                                Healthbar.Visible = ESP.Drawing.Healthbar.Enabled;
+                                Healthbar.Position = UDim2.new(0, Pos.X - w / 2 - 6, 0, Pos.Y - h / 2 + h * (1 - health))  
+                                Healthbar.Size = UDim2.new(0, ESP.Drawing.Healthbar.Width, 0, h * health)  
+                                --
+                                BehindHealthbar.Visible = ESP.Drawing.Healthbar.Enabled;
+                                BehindHealthbar.Position = UDim2.new(0, Pos.X - w / 2 - 6, 0, Pos.Y - h / 2)  
+                                BehindHealthbar.Size = UDim2.new(0, ESP.Drawing.Healthbar.Width, 0, h)
+                                -- Health Text
+                                do
+                                    if ESP.Drawing.Healthbar.HealthText then
+                                        local healthPercentage = math.floor(Humanoid.Health / Humanoid.MaxHealth * 100)
+                                        HealthText.Position = UDim2.new(0, Pos.X - w / 2 - 6, 0, Pos.Y - h / 2 + h * (1 - healthPercentage / 100) + 3)
+                                        HealthText.Text = tostring(healthPercentage)
+                                        HealthText.Visible = Humanoid.Health < Humanoid.MaxHealth
+                                        if ESP.Drawing.Healthbar.Lerp then
+                                            local color = health >= 0.75 and Color3.fromRGB(0, 255, 0) or health >= 0.5 and Color3.fromRGB(255, 255, 0) or health >= 0.25 and Color3.fromRGB(255, 170, 0) or Color3.fromRGB(255, 0, 0)
+                                            HealthText.TextColor3 = color
+                                        else
+                                            HealthText.TextColor3 = ESP.Drawing.Healthbar.HealthTextRGB
+                                        end
+                                    end                        
+                                end
+                            end
+
+                            do -- Names
+                                Name.Visible = ESP.Drawing.Names.Enabled
+                                if ESP.Options.Friendcheck and lplayer:IsFriendsWith(plr.UserId) then
+                                    Name.Text = string.format('(<font color="rgb(%d, %d, %d)">F</font>) %s', ESP.Options.FriendcheckRGB.R * 255, ESP.Options.FriendcheckRGB.G * 255, ESP.Options.FriendcheckRGB.B * 255, plr.Name)
+                                else
+                                    Name.Text = string.format('(<font color="rgb(%d, %d, %d)">E</font>) %s', 255, 0, 0, plr.Name)
+                                end
+                                Name.Position = UDim2.new(0, Pos.X, 0, Pos.Y - h / 2 - 9)
+                            end
+                            
+                            do -- Distance
+                                if ESP.Drawing.Distances.Enabled then
+                                    if ESP.Drawing.Distances.Position == "Bottom" then
+                                        Weapon.Position = UDim2.new(0, Pos.X, 0, Pos.Y + h / 2 + 18)
+                                        WeaponIcon.Position = UDim2.new(0, Pos.X - 21, 0, Pos.Y + h / 2 + 15);
+                                        Distance.Position = UDim2.new(0, Pos.X, 0, Pos.Y + h / 2 + 7)
+                                        Distance.Text = string.format("%d meters", math.floor(Dist))
+                                        Distance.Visible = true
+                                    elseif ESP.Drawing.Distances.Position == "Text" then
+                                        Weapon.Position = UDim2.new(0, Pos.X, 0, Pos.Y + h / 2 + 8)
+                                        WeaponIcon.Position = UDim2.new(0, Pos.X - 21, 0, Pos.Y + h / 2 + 5);
+                                        Distance.Visible = false
+                                        if ESP.Options.Friendcheck and lplayer:IsFriendsWith(plr.UserId) then
+                                            Name.Text = string.format('(<font color="rgb(%d, %d, %d)">F</font>) %s [%d]', ESP.Options.FriendcheckRGB.R * 255, ESP.Options.FriendcheckRGB.G * 255, ESP.Options.FriendcheckRGB.B * 255, plr.Name, math.floor(Dist))
+                                        else
+                                            Name.Text = string.format('(<font color="rgb(%d, %d, %d)">E</font>) %s [%d]', 255, 0, 0, plr.Name, math.floor(Dist))
+                                        end
+                                        Name.Visible = ESP.Drawing.Names.Enabled
+                                    end
+                                end
+                            end
+
+                            do -- Weapons
+                                Weapon.Text = "none"
+                                Weapon.Visible = ESP.Drawing.Weapons.Enabled
+                            end                            
+                        else
+                            HideESP();
+                        end
+                    else
+                        HideESP();
+                    end
+                else
+                    HideESP();
+                end
+            end)
+        end
+        coroutine.wrap(Updater)();
+    end
+    do -- Update ESP
+        for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+    if v.Name ~= lplayer.Name then
+        coroutine.wrap(ESPFunc)(v)
+    end      
+end
+
+game:GetService("Players").PlayerAdded:Connect(function(v)
+    coroutine.wrap(ESPFunc)(v)
+end);
+end
+endygyvyvyv
