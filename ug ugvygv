@@ -1,3 +1,6 @@
+-- .gg/tsol
+-- Jai & NetIntercept
+
 local a = game:GetService("Players").LocalPlayer
 local function b()
     game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -3967,4 +3970,4 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
     coroutine.wrap(ESPFunc)(v)
 end);
 end
-endygyvyvyv
+end
